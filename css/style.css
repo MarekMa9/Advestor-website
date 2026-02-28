@@ -268,13 +268,21 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   left: 0;
   right: 0;
   z-index: 100;
+  height: 72px;
+  transition: background 0.3s;
+  background: linear-gradient(180deg, var(--Dark-500, #181818) 0%, rgba(24, 24, 24, 0.00) 100%);
+}
+
+.nav-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
-  max-width: var(--max-width);
-  height: 72px;
-  transition: background 0.3s;
+  position: relative;
 }
 
 .nav-logo {
@@ -1446,8 +1454,11 @@ background: #ffffffba;
 
   /* === NAVIGATION === */
   .nav {
-    padding: 0 20px;
     height: 64px;
+  }
+
+  .nav-inner {
+    padding: 0 20px;
     justify-content: center;
   }
 
@@ -1652,6 +1663,17 @@ background: #ffffffba;
   .form-actions {
     flex-wrap: wrap;
     gap: 12px;
+  }
+
+  .form-actions .btn-primary,
+  .form-actions .btn-secondary,
+  .form-actions .btn-ghost {
+    padding: 12px 32px;
+    gap: 12px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
   }
 
   /* === FOOTER === */

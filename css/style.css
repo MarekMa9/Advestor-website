@@ -873,7 +873,8 @@ border-radius: 100px;
   text-align: center;
 }
 
-.case-studies-header .h2 { color: var(--white); }
+.case-studies-header .h2 { color: var(--white);
+max-width: 640px; }
 .case-studies-header p:not(.tagline) { color: var(--dark-200); max-width: 557px; }
 
 .case-studies-tabs {
@@ -1146,7 +1147,7 @@ border-radius: 100px;
   text-align: center;
 }
 
-.contact-header .h1 { max-width: 1032px; }
+.contact-header .h1 { max-width: 800px; }
 .contact-header .h1 .accent { color: var(--primary-500); }
 
 .contact-card {

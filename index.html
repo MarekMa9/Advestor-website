@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advestor – Marketing, ktorý vám konečne zarába</title>
+  <meta name="description" content="Kombinujeme technológiu, dáta a kreativitu na vytvorenie marketingových stratégií, ktoré prinášajú reálne výsledky.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&family=Barlow:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- NOTE: Replace 'Loos Wide' font references once font files are available.
+       Currently falling back to Barlow as a similar wide/bold typeface. -->
+  <style>
+    /* Font override until Loos Wide files are provided */
+    :root { --font-heading: 'Barlow', 'Work Sans', sans-serif; }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="nav">
+    <a href="#hero" class="nav-logo">
+      <img src="https://www.figma.com/api/mcp/asset/540b2513-339b-4ee3-82fa-d193634e9189"
+           alt="Advestor logo" style="height:40px;width:auto;"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="nav-logo-text" style="display:none">adve<span>stor</span></span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#hero">Domov</a></li>
+      <li><a href="#sluzby">O nás</a></li>
+      <li><a href="#portfolio">Naše práce</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+
+    <a href="#kontakt" class="btn-primary nav-cta" style="padding:12px 24px;font-size:14px;">
+      Získajte konzultáciu
+      <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:16px;height:16px">
+        <path d="M3.75 9H14.25M9.75 4.5L14.25 9L9.75 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </nav>
+
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-glow-left"></div>
+    <div class="hero-glow-right"></div>
+
+    <div class="hero-content">
+      <!-- Badge -->
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        <span class="hero-badge-text">Vaša cesta k reálnemu zisku</span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="hero-headline">
+        Marketing, ktorý vám<br>
+        konečne <span class="accent">zarába</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="hero-subtitle">
+        Prestaňte vyhadzovať peniaze na kampane, ktoré nikto nevidí. Spájame dáta
+        a kreativitu, aby sme doručili výsledky, ktoré uvidíte na svojom bankovom účte.
+      </p>
+
+      <!-- CTA buttons -->
+      <div class="hero-ctas">
+        <a href="#kontakt" class="btn-primary">
+          Chcem začať zarábať
+          <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3.75 9H14.25M9.75 4.5L14.25 9L9.75 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="#portfolio" class="btn-secondary">
+          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:16px;height:16px">
+            <path d="M8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12Z" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M6.5 5.5L10.5 8l-4 2.5V5.5Z" fill="currentColor"/>
+          </svg>
+          Pozrite si naše práce
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero-scroll">
+      <span class="hero-scroll-text">Scroll</span>
+      <svg class="hero-scroll-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 5v14M6 13l6 6 6-6" stroke="#404040" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <!-- Marquee ticker -->
+    <div class="ticker-wrapper">
+      <!-- Band 1: dark, tilted negative -->
+      <div class="ticker-band ticker-band--dark" aria-hidden="true">
+        <div class="ticker-track">
+          <span class="ticker-item">Brand Strategy</span><span class="ticker-sep">•</span>
+          <span class="ticker-item">Digital Marketing</span><span class="ticker-sep">•</span>
+          <span class="ticker-item">Creative Direction</span><span class="ticker-sep">•</span>
+          <span class="ticker-item">Performance Ads</span><span class="ticker-sep">•</span>
+          <span class="ticker-item">Growth Hacking</span><span class="ticker-sep">•</span>
+          <span class="ticker-item">Content Systems</span><span class="ticker-sep">•</span>
+          <span class="ticker-item">SEO &amp; Analytics</span><span class="ticker-sep">•</span>
+          <span class="ticker-item">UI/UX Design</span><span class="ticker-sep">•</span>
+          <!-- Duplicate for seamless loop -->
+          <span class="ticker-item">Brand Strategy</span><span class="ticker-sep">•</span>
+          <span class="ticker-item">Digital Marketing</span><span class="ticker-sep">•</span>
+          <span class="ticker-item">Creative Direction</span><span class="ticker-sep">•</span>
+          <span class="ticker-item">Performance Ads</span><span class="ticker-sep">•</span>
+          <span class="ticker-item">Growth Hacking</span><span class="ticker-sep">•</span>
+          <span class="ticker-item">Content Systems</span><span class="ticker-sep">•</span>
+          <span class="ticker-item">SEO &amp; Analytics</span><span class="ticker-sep">•</span>
+          <span class="ticker-item">UI/UX Design</span><span class="ticker-sep">•</span>
+        </div>
+      </div>
+
+      <!-- Band 2: accent, tilted positive -->
+      <div class="ticker-band ticker-band--accent" aria-hidden="true">
+        <div class="ticker-track">
+          <span class="ticker-item">Brand Strategy</span><span class="ticker-sep">•</span>
+          <span class="ticker-item">Digital Marketing</span><span class="ticker-sep">•</span>
+          <span class="ticker-item">Creative Direction</span><span class="ticker-sep">•</span>
+          <span class="ticker-item">Performance Ads</span><span class="ticker-sep">•</span>
+          <span class="ticker-item">Growth Hacking</span><span class="ticker-sep">•</span>
+          <span class="ticker-item">Content Systems</span><span class="ticker-sep">•</span>
+          <span class="ticker-item">SEO &amp; Analytics</span><span class="ticker-sep">•</span>
+          <span class="ticker-item">UI/UX Design</span><span class="ticker-sep">•</span>
+          <!-- Duplicate -->
+          <span class="ticker-item">Brand Strategy</span><span class="ticker-sep">•</span>
+          <span class="ticker-item">Digital Marketing</span><span class="ticker-sep">•</span>
+          <span class="ticker-item">Creative Direction</span><span class="ticker-sep">•</span>
+          <span class="ticker-item">Performance Ads</span><span class="ticker-sep">•</span>
+          <span class="ticker-item">Growth Hacking</span><span class="ticker-sep">•</span>
+          <span class="ticker-item">Content Systems</span><span class="ticker-sep">•</span>
+          <span class="ticker-item">SEO &amp; Analytics</span><span class="ticker-sep">•</span>
+          <span class="ticker-item">UI/UX Design</span><span class="ticker-sep">•</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       CLIENTS
+       ============================================================ -->
+  <section class="clients" id="clients">
+    <p class="clients-label">Dôverujú nám lídri v odvetví</p>
+    <div class="clients-logos">
+      <img class="clients-logo" src="https://www.figma.com/api/mcp/asset/a789cb7b-09c3-462d-a075-082cc7a5a4e4" alt="RKS Development" style="height:40px;width:179px;object-fit:contain">
+      <img class="clients-logo" src="https://www.figma.com/api/mcp/asset/630c09d9-fd93-4778-9ffe-21660a3e7f5a" alt="Colorlak" style="height:40px;width:42px;object-fit:contain">
+      <img class="clients-logo" src="https://www.figma.com/api/mcp/asset/709d9e6f-585c-4fd7-a50d-665ca05a7a08" alt="SS Studio" style="height:40px;width:148px;object-fit:contain">
+      <img class="clients-logo" src="https://www.figma.com/api/mcp/asset/027197ed-6f3e-4075-987d-83b1fef1d21a" alt="Domäsko" style="height:40px;width:184px;object-fit:contain">
+      <img class="clients-logo" src="https://www.figma.com/api/mcp/asset/9822ed53-c154-451f-9814-87d5c7630a51" alt="Fitfam" style="height:40px;width:83px;object-fit:contain">
+      <img class="clients-logo" src="https://www.figma.com/api/mcp/asset/88dc4ee9-a71b-4e9f-b75f-77f2e90c9eb7" alt="Client" style="height:40px;width:208px;object-fit:contain">
+      <img class="clients-logo" src="https://www.figma.com/api/mcp/asset/b575e28a-43fc-443f-ae10-fc336b1604ca" alt="Client" style="height:37px;width:162px;object-fit:contain">
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SERVICES
+       ============================================================ -->
+  <section class="services" id="sluzby">
+    <div class="services-glow"></div>
+
+    <div class="services-header">
+      <p class="tagline">Naše služby</p>
+      <h2 class="h2">Komplexný systém<br>pre vašu <span class="text-accent">dominanciu</span></h2>
+      <p>Nestrácajte čas s tým, čo nefunguje. Ponúkame arzenál služieb navrhnutých pre rast vašich tržieb.</p>
+    </div>
+
+    <div class="services-scroll-wrapper">
+      <div class="services-cards" id="services-cards">
+
+        <!-- Card 01: SEO -->
+        <div class="service-card">
+          <div class="service-card-header">
+            <span class="service-num">01</span>
+            <div class="service-icon-btn">
+              <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="service-card-body">
+            <h3 class="h5">SEO</h3>
+            <p>Budujeme vašu pozíciu tak, aby ste získavali zákazníkov zadarmo aj dlho po skončení kampane.</p>
+          </div>
+          <div class="service-tags">
+            <span class="badge">Analýza kľúčových slov</span>
+            <span class="badge">Linkbuilding</span>
+            <span class="badge">Obsah</span>
+            <span class="badge">Technický audit</span>
+          </div>
+        </div>
+
+        <!-- Card 02: Tvorba aplikácií -->
+        <div class="service-card">
+          <div class="service-card-header">
+            <span class="service-num">02</span>
+            <div class="service-icon-btn">
+              <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="service-card-body">
+            <h3 class="h5">Tvorba aplikácií</h3>
+            <p>Vyvíjame nástroj na mieru, ktorý vám ušetrí čas, zamestnancov a hlavne peniaze.</p>
+          </div>
+          <div class="service-tags">
+            <span class="badge">iOS</span>
+            <span class="badge">Android</span>
+            <span class="badge">Webové aplikácie</span>
+            <span class="badge">UX/UI</span>
+          </div>
+        </div>
+
+        <!-- Card 03: Video produkcia -->
+        <div class="service-card">
+          <div class="service-card-header">
+            <span class="service-num">03</span>
+            <div class="service-icon-btn">
+              <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="service-card-body">
+            <h3 class="h5">Video produkcia</h3>
+            <p>Získajte pozornosť v preplnenom svete. Tvoríme vizuály, ktoré sa vryjú do pamäti.</p>
+          </div>
+          <div class="service-tags">
+            <span class="badge">Reklamné spoty</span>
+            <span class="badge">Reels</span>
+            <span class="badge">Firemné videá</span>
+            <span class="badge">Event videá</span>
+          </div>
+        </div>
+
+        <!-- Card 04: Platená reklama -->
+        <div class="service-card">
+          <div class="service-card-header">
+            <span class="service-num">04</span>
+            <div class="service-icon-btn">
+              <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="service-card-body">
+            <h3 class="h5">Platená reklama</h3>
+            <p>Nastavíme kampane tak, aby každé vložené euro prinieslo dopyty, nie len prázdne lajky.</p>
+          </div>
+          <div class="service-tags">
+            <span class="badge">Google Ads</span>
+            <span class="badge">Meta Ads</span>
+            <span class="badge">Linkedin Ads</span>
+            <span class="badge">Remarketing</span>
+          </div>
+        </div>
+
+        <!-- Card 05: Webové stránky -->
+        <div class="service-card">
+          <div class="service-card-header">
+            <span class="service-num">05</span>
+            <div class="service-icon-btn">
+              <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="service-card-body">
+            <h3 class="h5">Webové stránky</h3>
+            <p>Pri dobrom webe sa zákazník rozhodne za 3 sekundy. Váš web má overiť záujem, vyvolať dôveru a presvedčiť.</p>
+          </div>
+          <div class="service-tags">
+            <span class="badge">Landing page</span>
+            <span class="badge">Eshop web</span>
+            <span class="badge">E-shop</span>
+            <span class="badge">Firemný web</span>
+          </div>
+        </div>
+
+        <!-- Card 06: Správa sociálnych sietí -->
+        <div class="service-card">
+          <div class="service-card-header">
+            <span class="service-num">06</span>
+            <div class="service-icon-btn">
+              <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="service-card-body">
+            <h3 class="h5">Správa sociálnych sietí</h3>
+            <p>Mŕtve profily odradzujú zákazníkov. My im vdýchneme život a postaráme sa, aby sa zo sledovateľov stali platení klienti.</p>
+          </div>
+          <div class="service-tags">
+            <span class="badge">Stratégia</span>
+            <span class="badge">Príspevky</span>
+            <span class="badge">Komunita</span>
+            <span class="badge">Tvorba obsahu</span>
+          </div>
+        </div>
+
+      </div><!-- /services-cards -->
+    </div><!-- /services-scroll-wrapper -->
+
+    <!-- Navigation arrows -->
+    <div class="services-nav">
+      <button class="btn-icon" id="svc-prev" aria-label="Predchádzajúce">
+        <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14.25 9H3.75M8.25 13.5L3.75 9l4.5-4.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="btn-icon" id="svc-next" aria-label="Nasledujúce">
+        <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3.75 9H14.25M9.75 4.5L14.25 9l-4.5 4.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       PORTFOLIO
+       ============================================================ -->
+  <section class="portfolio" id="portfolio">
+    <div class="portfolio-header">
+      <div class="portfolio-header-left">
+        <p class="tagline">Naše portfólio</p>
+        <h2 class="h2">Práce, ktoré<br>priniesli <span class="text-accent">výsledky</span></h2>
+      </div>
+      <p class="portfolio-header-right">
+        Máte skvelý produkt, ale nikto o ňom nevie? Inšpirujte sa značkami,
+        ktorým sme pomohli vystúpiť z tieňa konkurencie a ovládnuť trh.
+      </p>
+    </div>
+
+    <div class="portfolio-grid">
+
+      <!-- Project 1: RKS development -->
+      <div class="portfolio-item">
+        <div class="portfolio-image">
+          <img src="https://www.figma.com/api/mcp/asset/eb33df21-514b-485f-9047-57ac03a2db67" alt="RKS development projekt">
+        </div>
+        <div class="portfolio-item-meta">
+          <h3 class="h5">RKS development</h3>
+          <div class="portfolio-tags">
+            <span class="badge-accent">Webová stránka</span>
+            <span class="badge-accent">Video produkcia</span>
+            <span class="badge-accent">Platená reklama</span>
+            <span class="badge-accent">Správa sociálnych sietí</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2: Fitfam -->
+      <div class="portfolio-item">
+        <div class="portfolio-image">
+          <img src="https://www.figma.com/api/mcp/asset/066ec411-ffb1-4eb0-8ddc-0c7c7a715e6f" alt="Fitfam projekt">
+        </div>
+        <div class="portfolio-item-meta">
+          <h3 class="h5">Fitfam</h3>
+          <div class="portfolio-tags">
+            <span class="badge-accent">Webová stránka</span>
+            <span class="badge-accent">Video produkcia</span>
+            <span class="badge-accent">Platená reklama</span>
+            <span class="badge-accent">Webová aplikácia</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3: SS Studio -->
+      <div class="portfolio-item">
+        <div class="portfolio-image">
+          <img src="https://www.figma.com/api/mcp/asset/8f97cba3-4102-4c54-82c1-4b3aad820c50" alt="SS Studio projekt">
+        </div>
+        <div class="portfolio-item-meta">
+          <h3 class="h5">SS Studio</h3>
+          <div class="portfolio-tags">
+            <span class="badge-accent">Webová stránka</span>
+            <span class="badge-accent">Video produkcia</span>
+            <span class="badge-accent">Platená reklama</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       CASE STUDIES
+       ============================================================ -->
+  <section class="case-studies" id="case-studies">
+    <div class="case-studies-glow"></div>
+
+    <div class="case-studies-header">
+      <p class="tagline">Case Studies</p>
+      <h2 class="h2">Pozrite sa, ako <span class="text-accent">zarábame</span><br>našim klientom</h2>
+      <p>Žiadne vymyslené štatistiky. Iba reálne kampane, reálni klienti a merateľné výsledky.</p>
+    </div>
+
+    <!-- Tab filters -->
+    <div class="case-studies-tabs">
+      <button class="tab-btn tab-btn--active">TechVision s.r.o.</button>
+      <button class="tab-btn tab-btn--inactive">NovaFlow a.s.</button>
+      <button class="tab-btn tab-btn--inactive">DataPulse Group</button>
+    </div>
+
+    <!-- Case study card -->
+    <div class="case-card">
+      <!-- Browser chrome bar -->
+      <div class="case-card-bar">
+        <div style="display:flex;align-items:center;gap:0">
+          <div class="case-card-dots">
+            <div class="dot dot--red"></div>
+            <div class="dot dot--yellow"></div>
+            <div class="dot dot--green"></div>
+          </div>
+          <span class="case-card-path">analytics-dashboard / <span id="case-client-slug">techvision-s.r.o.</span></span>
+        </div>
+        <div class="case-card-live">
+          <div class="live-dot"></div>
+          <span class="live-text">LIVE</span>
+        </div>
+      </div>
+
+      <!-- Card body -->
+      <div class="case-card-body">
+        <!-- Info block -->
+        <div class="case-card-info">
+          <div class="case-card-title">
+            <h3 class="h5" id="case-client">TechVision s.r.o.</h3>
+            <span class="badge-accent" id="case-category">SaaS / Technologie</span>
+          </div>
+          <p class="case-card-desc" id="case-desc">
+            Komplexná SEO stratégia kombinovaná s content marketingom a PPC kampaňami. Optimalizácia konverzného lievika a redesign landing pages.
+          </p>
+          <div class="case-result">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 1.5v13M3.5 7l4.5-5.5L12.5 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <p class="case-result-text" id="case-result-text">
+              <strong>Výsledok:</strong> <span>Za 6 mesiacov sme dosiahli 4x návratnosť investície a stabilný organický rast.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="case-charts">
+
+          <!-- Bar chart: Before vs After -->
+          <div class="chart-card">
+            <div class="chart-card-header">
+              <span class="chart-title">Konverzie: Pred vs. Po</span>
+              <div class="chart-legend">
+                <div class="legend-item">
+                  <div class="legend-dot" style="background:#333"></div>
+                  <span>Pred</span>
+                </div>
+                <div class="legend-item">
+                  <div class="legend-dot" style="background:#beec1b"></div>
+                  <span>Po</span>
+                </div>
+              </div>
+            </div>
+            <!-- SVG Bar chart -->
+            <div style="flex:1;display:flex;flex-direction:column">
+              <div style="flex:1;display:flex;align-items:flex-end;gap:12px;padding:0 4px">
+                <div class="bar-group">
+                  <div class="bar bar--before" style="height:15%"></div>
+                  <div class="bar bar--after"  style="height:35%"></div>
+                </div>
+                <div class="bar-group">
+                  <div class="bar bar--before" style="height:20%"></div>
+                  <div class="bar bar--after"  style="height:50%"></div>
+                </div>
+                <div class="bar-group">
+                  <div class="bar bar--before" style="height:18%"></div>
+                  <div class="bar bar--after"  style="height:62%"></div>
+                </div>
+                <div class="bar-group">
+                  <div class="bar bar--before" style="height:22%"></div>
+                  <div class="bar bar--after"  style="height:70%"></div>
+                </div>
+                <div class="bar-group">
+                  <div class="bar bar--before" style="height:17%"></div>
+                  <div class="bar bar--after"  style="height:80%"></div>
+                </div>
+                <div class="bar-group">
+                  <div class="bar bar--before" style="height:25%"></div>
+                  <div class="bar bar--after"  style="height:95%"></div>
+                </div>
+              </div>
+              <div class="bar-labels">
+                <div class="bar-label">Jan</div>
+                <div class="bar-label">Feb</div>
+                <div class="bar-label">Mar</div>
+                <div class="bar-label">Apr</div>
+                <div class="bar-label">Máj</div>
+                <div class="bar-label">Jún</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Area chart: Growth trend -->
+          <div class="chart-card">
+            <div class="chart-card-header">
+              <span class="chart-title" style="font-size:14px">Rastový trend</span>
+              <div class="chart-growth">
+                <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:14px;height:14px;color:#beec1b">
+                  <path d="M2 10L6 6l3 3 4-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="chart-growth-value" id="case-growth">+244%</span>
+              </div>
+            </div>
+            <!-- SVG Area chart -->
+            <div style="flex:1;overflow:hidden">
+              <svg viewBox="0 0 545 167" preserveAspectRatio="none" style="width:100%;height:100%">
+                <defs>
+                  <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#beec1b" stop-opacity="0.3"/>
+                    <stop offset="100%" stop-color="#beec1b" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <!-- Area fill -->
+                <path d="M0 160 C80 158 120 150 150 135 C200 115 240 100 290 80 C340 55 390 30 430 15 C460 5 500 3 545 2 L545 167 L0 167 Z"
+                      fill="url(#areaGrad)"/>
+                <!-- Line -->
+                <path d="M0 160 C80 158 120 150 150 135 C200 115 240 100 290 80 C340 55 390 30 430 15 C460 5 500 3 545 2"
+                      fill="none" stroke="#beec1b" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="bar-labels" style="border-top:none;padding-top:0">
+              <div class="bar-label">Feb</div>
+              <div class="bar-label">Mar</div>
+              <div class="bar-label">Apr</div>
+              <div class="bar-label">Máj</div>
+              <div class="bar-label">Jún</div>
+            </div>
+          </div>
+
+        </div><!-- /case-charts -->
+      </div><!-- /case-card-body -->
+    </div><!-- /case-card -->
+
+    <!-- Pagination -->
+    <div class="case-pagination">
+      <button class="btn-icon" id="case-prev" aria-label="Predchádzajúci">
+        <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14.25 9H3.75M8.25 13.5L3.75 9l4.5-4.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <span class="pagination-text" id="case-page">1 / 3</span>
+      <button class="btn-icon" id="case-next" aria-label="Nasledujúci">
+        <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3.75 9H14.25M9.75 4.5L14.25 9l-4.5 4.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       CONTACT / CTA
+       ============================================================ -->
+  <section class="contact" id="kontakt">
+    <div class="contact-header">
+      <p class="tagline">Kontaktujte nás</p>
+      <h2 class="h1">
+        Ste pripravení na<br>
+        <span class="accent">rast?</span>
+      </h2>
+    </div>
+
+    <div class="contact-card">
+      <!-- Step selector (left panel) -->
+      <div class="contact-steps">
+
+        <div class="step-item step-item--inactive">
+          <div class="step-item-left">
+            <span class="step-num">01</span>
+            <span class="step-label">Oblasť podnikania</span>
+          </div>
+          <svg class="step-chevron" viewBox="0 0 16 16" fill="none">
+            <path d="M6 12l4-4-4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <div class="step-item step-item--inactive">
+          <div class="step-item-left">
+            <span class="step-num">02</span>
+            <span class="step-label">Váš problém</span>
+          </div>
+          <svg class="step-chevron" viewBox="0 0 16 16" fill="none">
+            <path d="M6 12l4-4-4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <div class="step-item step-item--inactive">
+          <div class="step-item-left">
+            <span class="step-num">03</span>
+            <span class="step-label" style="line-height:1.4">Rozpočet<br>&amp; časový rámec</span>
+          </div>
+          <svg class="step-chevron" viewBox="0 0 16 16" fill="none">
+            <path d="M6 12l4-4-4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <div class="step-item step-item--active">
+          <div class="step-item-left">
+            <span class="step-num">04</span>
+            <span class="step-label">Kontaktné informácie</span>
+          </div>
+          <svg class="step-chevron" viewBox="0 0 16 16" fill="none">
+            <path d="M6 12l4-4-4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+      </div><!-- /contact-steps -->
+
+      <!-- Form (right panel) -->
+      <div class="contact-form">
+        <div class="form-header">
+          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 1l1.5 4.5H14l-3.5 2.5 1.5 4.5L8 10l-4 2.5 1.5-4.5L2 5.5h4.5L8 1Z" fill="#beec1b"/>
+          </svg>
+          <span>Rýchly formulár – odpoveď do 24h</span>
+        </div>
+
+        <!-- Step panels (shown/hidden via JS) -->
+        <!-- Step 0: Industry -->
+        <div class="form-step-panel" style="display:none;flex-direction:column;gap:32px;flex:1">
+          <div class="form-fields">
+            <p style="font-size:16px;color:var(--muted)">V akom odvetví pôsobíte?</p>
+            <div style="display:flex;flex-wrap:wrap;gap:12px">
+              <label style="display:flex;align-items:center;gap:8px;padding:12px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-full);cursor:pointer">
+                <input type="radio" name="industry" value="ecommerce" style="accent-color:#beec1b"> E-commerce
+              </label>
+              <label style="display:flex;align-items:center;gap:8px;padding:12px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-full);cursor:pointer">
+                <input type="radio" name="industry" value="saas" style="accent-color:#beec1b"> SaaS / Tech
+              </label>
+              <label style="display:flex;align-items:center;gap:8px;padding:12px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-full);cursor:pointer">
+                <input type="radio" name="industry" value="services" style="accent-color:#beec1b"> Služby
+              </label>
+              <label style="display:flex;align-items:center;gap:8px;padding:12px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-full);cursor:pointer">
+                <input type="radio" name="industry" value="other" style="accent-color:#beec1b"> Iné
+              </label>
+            </div>
+          </div>
+          <div class="form-actions">
+            <div></div>
+            <button class="btn-primary" id="form-next" type="button">
+              Ďalej
+              <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:18px;height:18px">
+                <path d="M3.75 9H14.25M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 1: Problem -->
+        <div class="form-step-panel" style="display:none;flex-direction:column;gap:32px;flex:1">
+          <div class="form-fields">
+            <p style="font-size:16px;color:var(--muted)">Aký je váš hlavný marketingový problém?</p>
+            <textarea class="form-input" rows="5" placeholder="Opíšte váš problém alebo cieľ..." style="resize:vertical"></textarea>
+          </div>
+          <div class="form-actions">
+            <button class="btn-ghost" id="form-prev-1" type="button">Späť</button>
+            <button class="btn-primary" id="form-next-1" type="button">
+              Ďalej
+              <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:18px;height:18px">
+                <path d="M3.75 9H14.25M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 2: Budget -->
+        <div class="form-step-panel" style="display:none;flex-direction:column;gap:32px;flex:1">
+          <div class="form-fields">
+            <p style="font-size:16px;color:var(--muted)">Mesačný rozpočet na marketing</p>
+            <div style="display:flex;flex-wrap:wrap;gap:12px">
+              <label style="display:flex;align-items:center;gap:8px;padding:12px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-full);cursor:pointer">
+                <input type="radio" name="budget" value="500-1000" style="accent-color:#beec1b"> 500 – 1 000 €
+              </label>
+              <label style="display:flex;align-items:center;gap:8px;padding:12px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-full);cursor:pointer">
+                <input type="radio" name="budget" value="1000-3000" style="accent-color:#beec1b"> 1 000 – 3 000 €
+              </label>
+              <label style="display:flex;align-items:center;gap:8px;padding:12px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-full);cursor:pointer">
+                <input type="radio" name="budget" value="3000+" style="accent-color:#beec1b"> 3 000+ €
+              </label>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button class="btn-ghost" id="form-prev-2" type="button">Späť</button>
+            <button class="btn-primary" id="form-next-2" type="button">
+              Ďalej
+              <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:18px;height:18px">
+                <path d="M3.75 9H14.25M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 3: Contact info (active by default, matching Figma) -->
+        <div class="form-step-panel" style="display:none;flex-direction:column;gap:32px;flex:1">
+          <form class="form-fields" id="contact-form" action="#" method="post">
+            <div class="form-field">
+              <label class="form-label" for="name">MENO *</label>
+              <input class="form-input" type="text" id="name" name="name" placeholder="Ján Novák" required>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="email">EMAIL *</label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="novak@gmail.com" required>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="phone">TEL. ČÍSLO *</label>
+              <input class="form-input" type="tel" id="phone" name="phone" placeholder="0901 222 333" required>
+            </div>
+          </form>
+          <div class="form-actions">
+            <button class="btn-ghost" id="form-prev-3" type="button">Späť</button>
+            <button class="btn-primary" type="submit" form="contact-form">
+              Získajte bezplatnú konzultáciu
+              <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:18px;height:18px">
+                <path d="M3.75 9H14.25M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+      </div><!-- /contact-form -->
+    </div><!-- /contact-card -->
+  </section>
+
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer" id="footer">
+    <div class="footer-top">
+      <a href="#hero" class="footer-logo">
+        <img src="https://www.figma.com/api/mcp/asset/540b2513-339b-4ee3-82fa-d193634e9189"
+             alt="Advestor logo"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="footer-logo-text" style="display:none">adve<span>stor</span></span>
+      </a>
+      <nav class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookies</a>
+      </nav>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Advestor GROUP s.r.o.. ALL RIGHTS RESERVED.</p>
+      <a href="#">Ochrana osobných údajov</a>
+    </div>
+  </footer>
+
+
+  <script src="js/script.js"></script>
+  <script>
+    // Multi-step form wiring (inline for simplicity)
+    (function() {
+      const panels = document.querySelectorAll('.form-step-panel');
+      const stepItems = document.querySelectorAll('.step-item');
+
+      function showPanel(idx) {
+        panels.forEach((p, i) => p.style.display = i === idx ? 'flex' : 'none');
+        stepItems.forEach((s, i) => {
+          s.className = 'step-item ' + (i === idx ? 'step-item--active' : 'step-item--inactive');
+        });
+      }
+
+      // Wire step clicks
+      stepItems.forEach((s, i) => s.addEventListener('click', () => showPanel(i)));
+
+      // Wire next/prev buttons per panel
+      document.getElementById('form-next')?.addEventListener('click',    () => showPanel(1));
+      document.getElementById('form-prev-1')?.addEventListener('click',  () => showPanel(0));
+      document.getElementById('form-next-1')?.addEventListener('click',  () => showPanel(2));
+      document.getElementById('form-prev-2')?.addEventListener('click',  () => showPanel(1));
+      document.getElementById('form-next-2')?.addEventListener('click',  () => showPanel(3));
+      document.getElementById('form-prev-3')?.addEventListener('click',  () => showPanel(2));
+
+      // Show last step by default (matching Figma)
+      showPanel(3);
+
+      // Form submit
+      document.getElementById('contact-form')?.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btn = this.querySelector('button[type=submit]');
+        btn.textContent = 'Odoslané! Ozveme sa vám. ✓';
+        btn.style.background = '#2a6e00';
+        btn.disabled = true;
+      });
+    })();
+  </script>
+
+</body>
+</html>

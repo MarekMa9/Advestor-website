@@ -137,7 +137,7 @@ function agencyEmail(
 
   <!-- Logo -->
   <tr><td style="padding:0 0 28px;text-align:center;">
-    <img src="https://advestor.sk/images/Logo-advestor.svg" alt="Advestor.sk" width="110" height="69" border="0" style="display:block;margin:0 auto;">
+    <img src="advestor-logo-light.png" alt="Advestor.sk" width="110" height="69" border="0" style="display:block;margin:0 auto;">
   </td></tr>
 
   <!-- Card -->
@@ -206,7 +206,7 @@ function clientEmail(string $name): string {
 
   <!-- Logo -->
   <tr><td style="padding:0 0 28px;text-align:center;">
-    <img src="https://advestor.sk/images/Logo-advestor.svg" alt="Advestor.sk" width="110" height="69" border="0" style="display:block;margin:0 auto;">
+    <img src="advestor-logo-light.png" alt="Advestor.sk" width="110" height="69" border="0" style="display:block;margin:0 auto;">
   </td></tr>
 
   <!-- Card -->
@@ -215,12 +215,7 @@ function clientEmail(string $name): string {
 
       <!-- Checkmark icon -->
       <tr><td align="center" style="padding:0 0 32px;">
-        <table cellpadding="0" cellspacing="0">
-        <tr><td width="88" height="88" align="center" valign="middle"
-            style="background:#BEEC1B;border-radius:44px;font-size:44px;line-height:1;color:#0A0A0A;font-weight:900;font-family:Arial,sans-serif;text-align:center;padding:0;width:88px;height:88px;">
-          &#10003;
-        </td></tr>
-        </table>
+        <img src="https://advestor.sk/images/checkmark.png" width="88" height="88" alt="Checkmark" style="display:block;border:0;" />
       </td></tr>
 
       <!-- Heading -->
@@ -236,13 +231,13 @@ function clientEmail(string $name): string {
       <!-- Message -->
       <tr><td style="text-align:left;padding:0 0 8px;">
         <p style="margin:0 0 14px;font-size:15px;color:#AAAAAA;font-family:Arial,sans-serif;line-height:1.7;">
-          Ahoj <strong style="color:#FFFFFF;">$n</strong>,
+          Dobrý deň, <strong style="color:#FFFFFF;">$n</strong>,
         </p>
         <p style="margin:0 0 14px;font-size:15px;color:#AAAAAA;font-family:Arial,sans-serif;line-height:1.7;">
-          ďakujeme za vyplnenie kontaktného formulára. Tvoja správa sa dostala k nám a my ju čoskoro spracujeme.
+          ďakujeme za vyplnenie kontaktného formulára. Vaša správa sa dostala k nám a my ju čoskoro spracujeme.
         </p>
         <p style="margin:0;font-size:15px;color:#AAAAAA;font-family:Arial,sans-serif;line-height:1.7;">
-          Ozveme sa ti do <strong style="color:#BEEC1B;">48 hodín</strong> pracovného času.
+          Ozveme sa Vám do <strong style="color:#BEEC1B;">48 hodín</strong>.
         </p>
       </td></tr>
 
@@ -253,8 +248,8 @@ function clientEmail(string $name): string {
   <tr><td style="padding:12px 0 0;">
     <table cellpadding="0" cellspacing="0" style="width:100%;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
     <tr><td style="padding:20px 24px;">
-      <p style="margin:0 0 4px;font-size:12px;color:#555555;font-family:Arial,sans-serif;">Máš otázky? Napíš nám priamo:</p>
-      <a href="mailto:marek@advestor.sk" style="color:#BEEC1B;text-decoration:none;font-size:15px;font-weight:600;font-family:Arial,sans-serif;">marek@advestor.sk</a>
+      <p style="margin:0 0 4px;font-size:12px;color:#555555;font-family:Arial,sans-serif;">Máte otázky? Napíšte nám priamo:</p>
+      <a href="mailto:marek@advestor.sk" style="color:#BEEC1B;text-decoration:none;font-size:15px;font-weight:600;font-family:Arial,sans-serif;">info@advestor.sk</a>
     </td></tr>
     </table>
   </td></tr>
@@ -295,7 +290,7 @@ try {
     $m->isHTML(true);
     $m->Subject = 'Ďakujeme za váš záujem – Advestor.sk';
     $m->Body    = clientEmail($name);
-    $m->AltBody = "Ahoj $name,\n\nďakujeme za vyplnenie formulára. Ozveme sa ti do 48 hodín.\n\nTím Advestor.sk\nmarek@advestor.sk";
+    $m->AltBody = "Dobrý deň, $name,\n\nďakujeme za vyplnenie formulára. Ozveme sa Vám do 48 hodín.\n\nTím Advestor.sk\nmarek@advestor.sk";
     $m->send();
 } catch (Exception $e) {
     $errors[] = 'client';

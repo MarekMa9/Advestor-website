@@ -1,22 +1,15 @@
 <!DOCTYPE html>
 <html lang="sk">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Advestor – Marketing, ktorý vám konečne zarába</title>
-  <meta name="description" content="Kombinujeme technológiu, dáta a kreativitu na vytvorenie marketingových stratégií, ktoré prinášajú reálne výsledky.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&family=Barlow:wght@700;800;900&display=swap" rel="stylesheet">
+  <meta name="description"
+    content="Kombinujeme technológiu, dáta a kreativitu na vytvorenie marketingových stratégií, ktoré prinášajú reálne výsledky.">
   <link rel="stylesheet" href="css/style.css">
-
-  <!-- NOTE: Replace 'Loos Wide' font references once font files are available.
-       Currently falling back to Barlow as a similar wide/bold typeface. -->
-  <style>
-    /* Font override until Loos Wide files are provided */
-    :root { --font-heading: 'Barlow', 'Work Sans', sans-serif; }
-  </style>
 </head>
+
 <body>
 
   <!-- ============================================================
@@ -24,24 +17,21 @@
        ============================================================ -->
   <nav class="nav">
     <a href="#hero" class="nav-logo">
-      <img src="https://www.figma.com/api/mcp/asset/540b2513-339b-4ee3-82fa-d193634e9189"
-           alt="Advestor logo" style="height:40px;width:auto;"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <img src="images/Logo-advestor.svg" alt="Advestor logo" style="height:40px;width:auto;"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
       <span class="nav-logo-text" style="display:none">adve<span>stor</span></span>
     </a>
 
     <ul class="nav-links">
-      <li><a href="#hero">Domov</a></li>
-      <li><a href="#sluzby">O nás</a></li>
-      <li><a href="#portfolio">Naše práce</a></li>
+      <li><a href="#sluzby">Služby</a></li>
+      <li><a href="#portfolio">Portfólio</a></li>
+      <li><a href="#case-studies">Case Studies</a></li>
       <li><a href="#kontakt">Kontakt</a></li>
     </ul>
 
     <a href="#kontakt" class="btn-primary nav-cta" style="padding:12px 24px;font-size:14px;">
       Získajte konzultáciu
-      <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:16px;height:16px">
-        <path d="M3.75 9H14.25M9.75 4.5L14.25 9L9.75 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+
     </a>
   </nav>
 
@@ -77,15 +67,20 @@
       <div class="hero-ctas">
         <a href="#kontakt" class="btn-primary">
           Chcem začať zarábať
-          <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3.75 9H14.25M9.75 4.5L14.25 9L9.75 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3.75 9H14.25" stroke="#0A0A0A" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+            <path d="M9 3.75L14.25 9L9 14.25" stroke="#0A0A0A" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
           </svg>
+
         </a>
         <a href="#portfolio" class="btn-secondary">
-          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:16px;height:16px">
-            <path d="M8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12Z" stroke="currentColor" stroke-width="1.5"/>
-            <path d="M6.5 5.5L10.5 8l-4 2.5V5.5Z" fill="currentColor"/>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 2L13.3333 8L4 14V2Z" stroke="#BEEC1B" stroke-width="1.33333" stroke-linecap="round"
+              stroke-linejoin="round" />
           </svg>
+
           Pozrite si naše práce
         </a>
       </div>
@@ -94,9 +89,11 @@
     <!-- Scroll indicator -->
     <div class="hero-scroll">
       <span class="hero-scroll-text">Scroll</span>
-      <svg class="hero-scroll-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 5v14M6 13l6 6 6-6" stroke="#404040" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <svg class="hero-scroll-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 9L12 15L18 9" stroke="#404040" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
       </svg>
+
     </div>
 
     <!-- Marquee ticker -->
@@ -156,13 +153,23 @@
   <section class="clients" id="clients">
     <p class="clients-label">Dôverujú nám lídri v odvetví</p>
     <div class="clients-logos">
-      <img class="clients-logo" src="https://www.figma.com/api/mcp/asset/a789cb7b-09c3-462d-a075-082cc7a5a4e4" alt="RKS Development" style="height:40px;width:179px;object-fit:contain">
-      <img class="clients-logo" src="https://www.figma.com/api/mcp/asset/630c09d9-fd93-4778-9ffe-21660a3e7f5a" alt="Colorlak" style="height:40px;width:42px;object-fit:contain">
-      <img class="clients-logo" src="https://www.figma.com/api/mcp/asset/709d9e6f-585c-4fd7-a50d-665ca05a7a08" alt="SS Studio" style="height:40px;width:148px;object-fit:contain">
-      <img class="clients-logo" src="https://www.figma.com/api/mcp/asset/027197ed-6f3e-4075-987d-83b1fef1d21a" alt="Domäsko" style="height:40px;width:184px;object-fit:contain">
-      <img class="clients-logo" src="https://www.figma.com/api/mcp/asset/9822ed53-c154-451f-9814-87d5c7630a51" alt="Fitfam" style="height:40px;width:83px;object-fit:contain">
-      <img class="clients-logo" src="https://www.figma.com/api/mcp/asset/88dc4ee9-a71b-4e9f-b75f-77f2e90c9eb7" alt="Client" style="height:40px;width:208px;object-fit:contain">
-      <img class="clients-logo" src="https://www.figma.com/api/mcp/asset/b575e28a-43fc-443f-ae10-fc336b1604ca" alt="Client" style="height:37px;width:162px;object-fit:contain">
+      <div class="clients-track">
+        <img class="clients-logo" src="images/RKS logo.svg" alt="RKS Development">
+        <img class="clients-logo" src="images/colorlak_logo.webp" alt="Colorlak">
+        <img class="clients-logo" src="images/SS studio logo.svg" alt="SS Studio">
+        <img class="clients-logo" src="images/Domasko logo.svg" alt="Domasko">
+        <img class="clients-logo" src="images/Kerapro logo.svg" alt="Kerapro">
+        <img class="clients-logo" src="images/MHSR logo.svg" alt="Ministerstvo hospodarstva SR">
+        <img class="clients-logo" src="images/Autorro logo.svg" alt="Autorro">
+
+        <img class="clients-logo" src="images/RKS logo.svg" alt="" aria-hidden="true">
+        <img class="clients-logo" src="images/colorlak_logo.webp" alt="" aria-hidden="true">
+        <img class="clients-logo" src="images/SS studio logo.svg" alt="" aria-hidden="true">
+        <img class="clients-logo" src="images/Domasko logo.svg" alt="" aria-hidden="true">
+        <img class="clients-logo" src="images/Kerapro logo.svg" alt="" aria-hidden="true">
+        <img class="clients-logo" src="images/MHSR logo.svg" alt="" aria-hidden="true">
+        <img class="clients-logo" src="images/Autorro logo.svg" alt="" aria-hidden="true">
+      </div>
     </div>
   </section>
 
@@ -188,7 +195,8 @@
             <span class="service-num">01</span>
             <div class="service-icon-btn">
               <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.2"
+                  stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </div>
           </div>
@@ -210,7 +218,8 @@
             <span class="service-num">02</span>
             <div class="service-icon-btn">
               <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.2"
+                  stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </div>
           </div>
@@ -232,7 +241,8 @@
             <span class="service-num">03</span>
             <div class="service-icon-btn">
               <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.2"
+                  stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </div>
           </div>
@@ -254,7 +264,8 @@
             <span class="service-num">04</span>
             <div class="service-icon-btn">
               <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.2"
+                  stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </div>
           </div>
@@ -276,13 +287,15 @@
             <span class="service-num">05</span>
             <div class="service-icon-btn">
               <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.2"
+                  stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </div>
           </div>
           <div class="service-card-body">
             <h3 class="h5">Webové stránky</h3>
-            <p>Pri dobrom webe sa zákazník rozhodne za 3 sekundy. Váš web má overiť záujem, vyvolať dôveru a presvedčiť.</p>
+            <p>Pri dobrom webe sa zákazník rozhodne za 3 sekundy. Váš web má overiť záujem, vyvolať dôveru a presvedčiť.
+            </p>
           </div>
           <div class="service-tags">
             <span class="badge">Landing page</span>
@@ -298,13 +311,15 @@
             <span class="service-num">06</span>
             <div class="service-icon-btn">
               <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.2"
+                  stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </div>
           </div>
           <div class="service-card-body">
             <h3 class="h5">Správa sociálnych sietí</h3>
-            <p>Mŕtve profily odradzujú zákazníkov. My im vdýchneme život a postaráme sa, aby sa zo sledovateľov stali platení klienti.</p>
+            <p>Mŕtve profily odradzujú zákazníkov. My im vdýchneme život a postaráme sa, aby sa zo sledovateľov stali
+              platení klienti.</p>
           </div>
           <div class="service-tags">
             <span class="badge">Stratégia</span>
@@ -321,12 +336,14 @@
     <div class="services-nav">
       <button class="btn-icon" id="svc-prev" aria-label="Predchádzajúce">
         <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M14.25 9H3.75M8.25 13.5L3.75 9l4.5-4.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M14.25 9H3.75M8.25 13.5L3.75 9l4.5-4.5" stroke="white" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
         </svg>
       </button>
       <button class="btn-icon" id="svc-next" aria-label="Nasledujúce">
         <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3.75 9H14.25M9.75 4.5L14.25 9l-4.5 4.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M3.75 9H14.25M9.75 4.5L14.25 9l-4.5 4.5" stroke="white" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
         </svg>
       </button>
     </div>
@@ -353,7 +370,8 @@
       <!-- Project 1: RKS development -->
       <div class="portfolio-item">
         <div class="portfolio-image">
-          <img src="https://www.figma.com/api/mcp/asset/eb33df21-514b-485f-9047-57ac03a2db67" alt="RKS development projekt">
+          <img src="https://www.figma.com/api/mcp/asset/eb33df21-514b-485f-9047-57ac03a2db67"
+            alt="RKS development projekt">
         </div>
         <div class="portfolio-item-meta">
           <h3 class="h5">RKS development</h3>
@@ -447,14 +465,17 @@
             <span class="badge-accent" id="case-category">SaaS / Technologie</span>
           </div>
           <p class="case-card-desc" id="case-desc">
-            Komplexná SEO stratégia kombinovaná s content marketingom a PPC kampaňami. Optimalizácia konverzného lievika a redesign landing pages.
+            Komplexná SEO stratégia kombinovaná s content marketingom a PPC kampaňami. Optimalizácia konverzného lievika
+            a redesign landing pages.
           </p>
           <div class="case-result">
             <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8 1.5v13M3.5 7l4.5-5.5L12.5 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8 1.5v13M3.5 7l4.5-5.5L12.5 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
             </svg>
             <p class="case-result-text" id="case-result-text">
-              <strong>Výsledok:</strong> <span>Za 6 mesiacov sme dosiahli 4x návratnosť investície a stabilný organický rast.</span>
+              <strong>Výsledok:</strong> <span>Za 6 mesiacov sme dosiahli 4x návratnosť investície a stabilný organický
+                rast.</span>
             </p>
           </div>
         </div>
@@ -482,27 +503,27 @@
               <div style="flex:1;display:flex;align-items:flex-end;gap:12px;padding:0 4px">
                 <div class="bar-group">
                   <div class="bar bar--before" style="height:15%"></div>
-                  <div class="bar bar--after"  style="height:35%"></div>
+                  <div class="bar bar--after" style="height:35%"></div>
                 </div>
                 <div class="bar-group">
                   <div class="bar bar--before" style="height:20%"></div>
-                  <div class="bar bar--after"  style="height:50%"></div>
+                  <div class="bar bar--after" style="height:50%"></div>
                 </div>
                 <div class="bar-group">
                   <div class="bar bar--before" style="height:18%"></div>
-                  <div class="bar bar--after"  style="height:62%"></div>
+                  <div class="bar bar--after" style="height:62%"></div>
                 </div>
                 <div class="bar-group">
                   <div class="bar bar--before" style="height:22%"></div>
-                  <div class="bar bar--after"  style="height:70%"></div>
+                  <div class="bar bar--after" style="height:70%"></div>
                 </div>
                 <div class="bar-group">
                   <div class="bar bar--before" style="height:17%"></div>
-                  <div class="bar bar--after"  style="height:80%"></div>
+                  <div class="bar bar--after" style="height:80%"></div>
                 </div>
                 <div class="bar-group">
                   <div class="bar bar--before" style="height:25%"></div>
-                  <div class="bar bar--after"  style="height:95%"></div>
+                  <div class="bar bar--after" style="height:95%"></div>
                 </div>
               </div>
               <div class="bar-labels">
@@ -521,8 +542,10 @@
             <div class="chart-card-header">
               <span class="chart-title" style="font-size:14px">Rastový trend</span>
               <div class="chart-growth">
-                <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:14px;height:14px;color:#beec1b">
-                  <path d="M2 10L6 6l3 3 4-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  style="width:14px;height:14px;color:#beec1b">
+                  <path d="M2 10L6 6l3 3 4-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
                 </svg>
                 <span class="chart-growth-value" id="case-growth">+244%</span>
               </div>
@@ -532,16 +555,18 @@
               <svg viewBox="0 0 545 167" preserveAspectRatio="none" style="width:100%;height:100%">
                 <defs>
                   <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#beec1b" stop-opacity="0.3"/>
-                    <stop offset="100%" stop-color="#beec1b" stop-opacity="0"/>
+                    <stop offset="0%" stop-color="#beec1b" stop-opacity="0.3" />
+                    <stop offset="100%" stop-color="#beec1b" stop-opacity="0" />
                   </linearGradient>
                 </defs>
                 <!-- Area fill -->
-                <path d="M0 160 C80 158 120 150 150 135 C200 115 240 100 290 80 C340 55 390 30 430 15 C460 5 500 3 545 2 L545 167 L0 167 Z"
-                      fill="url(#areaGrad)"/>
+                <path
+                  d="M0 160 C80 158 120 150 150 135 C200 115 240 100 290 80 C340 55 390 30 430 15 C460 5 500 3 545 2 L545 167 L0 167 Z"
+                  fill="url(#areaGrad)" />
                 <!-- Line -->
-                <path d="M0 160 C80 158 120 150 150 135 C200 115 240 100 290 80 C340 55 390 30 430 15 C460 5 500 3 545 2"
-                      fill="none" stroke="#beec1b" stroke-width="2" stroke-linecap="round"/>
+                <path
+                  d="M0 160 C80 158 120 150 150 135 C200 115 240 100 290 80 C340 55 390 30 430 15 C460 5 500 3 545 2"
+                  fill="none" stroke="#beec1b" stroke-width="2" stroke-linecap="round" />
               </svg>
             </div>
             <div class="bar-labels" style="border-top:none;padding-top:0">
@@ -561,13 +586,15 @@
     <div class="case-pagination">
       <button class="btn-icon" id="case-prev" aria-label="Predchádzajúci">
         <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M14.25 9H3.75M8.25 13.5L3.75 9l4.5-4.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M14.25 9H3.75M8.25 13.5L3.75 9l4.5-4.5" stroke="white" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
         </svg>
       </button>
       <span class="pagination-text" id="case-page">1 / 3</span>
       <button class="btn-icon" id="case-next" aria-label="Nasledujúci">
         <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3.75 9H14.25M9.75 4.5L14.25 9l-4.5 4.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M3.75 9H14.25M9.75 4.5L14.25 9l-4.5 4.5" stroke="white" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
         </svg>
       </button>
     </div>
@@ -596,7 +623,8 @@
             <span class="step-label">Oblasť podnikania</span>
           </div>
           <svg class="step-chevron" viewBox="0 0 16 16" fill="none">
-            <path d="M6 12l4-4-4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 12l4-4-4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
           </svg>
         </div>
 
@@ -606,7 +634,8 @@
             <span class="step-label">Váš problém</span>
           </div>
           <svg class="step-chevron" viewBox="0 0 16 16" fill="none">
-            <path d="M6 12l4-4-4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 12l4-4-4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
           </svg>
         </div>
 
@@ -616,7 +645,8 @@
             <span class="step-label" style="line-height:1.4">Rozpočet<br>&amp; časový rámec</span>
           </div>
           <svg class="step-chevron" viewBox="0 0 16 16" fill="none">
-            <path d="M6 12l4-4-4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 12l4-4-4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
           </svg>
         </div>
 
@@ -626,7 +656,8 @@
             <span class="step-label">Kontaktné informácie</span>
           </div>
           <svg class="step-chevron" viewBox="0 0 16 16" fill="none">
-            <path d="M6 12l4-4-4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 12l4-4-4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
           </svg>
         </div>
 
@@ -635,10 +666,20 @@
       <!-- Form (right panel) -->
       <div class="contact-form">
         <div class="form-header">
-          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 1l1.5 4.5H14l-3.5 2.5 1.5 4.5L8 10l-4 2.5 1.5-4.5L2 5.5h4.5L8 1Z" fill="#beec1b"/>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_453_2346)">
+              <path
+                d="M2.66662 9.33328C2.54046 9.33371 2.41677 9.29833 2.30992 9.23126C2.20307 9.1642 2.11744 9.06818 2.06299 8.95438C2.00853 8.84059 1.98748 8.71367 2.00229 8.58838C2.01709 8.4631 2.06714 8.34459 2.14662 8.24661L8.74662 1.44661C8.79613 1.38947 8.86359 1.35085 8.93794 1.3371C9.01229 1.32335 9.0891 1.33529 9.15577 1.37095C9.22245 1.40661 9.27501 1.46388 9.30484 1.53335C9.33468 1.60283 9.34001 1.68038 9.31995 1.75328L8.03995 5.76661C8.00221 5.86763 7.98954 5.97629 8.00302 6.08328C8.01649 6.19028 8.05573 6.2924 8.11735 6.3809C8.17897 6.46939 8.26114 6.54162 8.3568 6.59139C8.45247 6.64115 8.55878 6.66696 8.66662 6.66661H13.3333C13.4594 6.66618 13.5831 6.70156 13.69 6.76863C13.7968 6.8357 13.8825 6.93171 13.9369 7.04551C13.9914 7.15931 14.0124 7.28622 13.9976 7.41151C13.9828 7.53679 13.9328 7.65531 13.8533 7.75328L7.25329 14.5533C7.20378 14.6104 7.13631 14.649 7.06197 14.6628C6.98762 14.6765 6.9108 14.6646 6.84413 14.6289C6.77746 14.5933 6.7249 14.536 6.69506 14.4665C6.66523 14.3971 6.6599 14.3195 6.67995 14.2466L7.95995 10.2333C7.9977 10.1323 8.01037 10.0236 7.99689 9.91661C7.98341 9.80962 7.94418 9.70749 7.88256 9.619C7.82094 9.5305 7.73877 9.45827 7.6431 9.40851C7.54744 9.35874 7.44112 9.33293 7.33329 9.33328H2.66662Z"
+                stroke="#BEEC1B" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+            </g>
+            <defs>
+              <clipPath id="clip0_453_2346">
+                <rect width="16" height="16" fill="white" />
+              </clipPath>
+            </defs>
           </svg>
-          <span>Rýchly formulár – odpoveď do 24h</span>
+
+          <span>Kontaktujeme vás do 48 hodín</span>
         </div>
 
         <!-- Step panels (shown/hidden via JS) -->
@@ -647,16 +688,20 @@
           <div class="form-fields">
             <p style="font-size:16px;color:var(--muted)">V akom odvetví pôsobíte?</p>
             <div style="display:flex;flex-wrap:wrap;gap:12px">
-              <label style="display:flex;align-items:center;gap:8px;padding:12px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-full);cursor:pointer">
+              <label
+                style="display:flex;align-items:center;gap:8px;padding:12px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-full);cursor:pointer">
                 <input type="radio" name="industry" value="ecommerce" style="accent-color:#beec1b"> E-commerce
               </label>
-              <label style="display:flex;align-items:center;gap:8px;padding:12px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-full);cursor:pointer">
+              <label
+                style="display:flex;align-items:center;gap:8px;padding:12px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-full);cursor:pointer">
                 <input type="radio" name="industry" value="saas" style="accent-color:#beec1b"> SaaS / Tech
               </label>
-              <label style="display:flex;align-items:center;gap:8px;padding:12px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-full);cursor:pointer">
+              <label
+                style="display:flex;align-items:center;gap:8px;padding:12px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-full);cursor:pointer">
                 <input type="radio" name="industry" value="services" style="accent-color:#beec1b"> Služby
               </label>
-              <label style="display:flex;align-items:center;gap:8px;padding:12px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-full);cursor:pointer">
+              <label
+                style="display:flex;align-items:center;gap:8px;padding:12px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-full);cursor:pointer">
                 <input type="radio" name="industry" value="other" style="accent-color:#beec1b"> Iné
               </label>
             </div>
@@ -666,7 +711,8 @@
             <button class="btn-primary" id="form-next" type="button">
               Ďalej
               <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:18px;height:18px">
-                <path d="M3.75 9H14.25M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M3.75 9H14.25M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </button>
           </div>
@@ -676,14 +722,16 @@
         <div class="form-step-panel" style="display:none;flex-direction:column;gap:32px;flex:1">
           <div class="form-fields">
             <p style="font-size:16px;color:var(--muted)">Aký je váš hlavný marketingový problém?</p>
-            <textarea class="form-input" rows="5" placeholder="Opíšte váš problém alebo cieľ..." style="resize:vertical"></textarea>
+            <textarea class="form-input" rows="5" placeholder="Opíšte váš problém alebo cieľ..."
+              style="resize:vertical"></textarea>
           </div>
           <div class="form-actions">
             <button class="btn-ghost" id="form-prev-1" type="button">Späť</button>
             <button class="btn-primary" id="form-next-1" type="button">
               Ďalej
               <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:18px;height:18px">
-                <path d="M3.75 9H14.25M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M3.75 9H14.25M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </button>
           </div>
@@ -694,13 +742,16 @@
           <div class="form-fields">
             <p style="font-size:16px;color:var(--muted)">Mesačný rozpočet na marketing</p>
             <div style="display:flex;flex-wrap:wrap;gap:12px">
-              <label style="display:flex;align-items:center;gap:8px;padding:12px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-full);cursor:pointer">
+              <label
+                style="display:flex;align-items:center;gap:8px;padding:12px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-full);cursor:pointer">
                 <input type="radio" name="budget" value="500-1000" style="accent-color:#beec1b"> 500 – 1 000 €
               </label>
-              <label style="display:flex;align-items:center;gap:8px;padding:12px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-full);cursor:pointer">
+              <label
+                style="display:flex;align-items:center;gap:8px;padding:12px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-full);cursor:pointer">
                 <input type="radio" name="budget" value="1000-3000" style="accent-color:#beec1b"> 1 000 – 3 000 €
               </label>
-              <label style="display:flex;align-items:center;gap:8px;padding:12px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-full);cursor:pointer">
+              <label
+                style="display:flex;align-items:center;gap:8px;padding:12px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-full);cursor:pointer">
                 <input type="radio" name="budget" value="3000+" style="accent-color:#beec1b"> 3 000+ €
               </label>
             </div>
@@ -710,7 +761,8 @@
             <button class="btn-primary" id="form-next-2" type="button">
               Ďalej
               <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:18px;height:18px">
-                <path d="M3.75 9H14.25M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M3.75 9H14.25M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </button>
           </div>
@@ -736,9 +788,11 @@
             <button class="btn-ghost" id="form-prev-3" type="button">Späť</button>
             <button class="btn-primary" type="submit" form="contact-form">
               Získajte bezplatnú konzultáciu
-              <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:18px;height:18px">
-                <path d="M3.75 9H14.25M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M3.75 9H14.25" stroke="#0A0A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M9 3.75L14.25 9L9 14.25" stroke="#0A0A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
             </button>
           </div>
         </div>
@@ -754,9 +808,8 @@
   <footer class="footer" id="footer">
     <div class="footer-top">
       <a href="#hero" class="footer-logo">
-        <img src="https://www.figma.com/api/mcp/asset/540b2513-339b-4ee3-82fa-d193634e9189"
-             alt="Advestor logo"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <img src="images/Logo-advestor.svg" alt="Advestor logo"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <span class="footer-logo-text" style="display:none">adve<span>stor</span></span>
       </a>
       <nav class="footer-links">
@@ -776,7 +829,7 @@
   <script src="js/script.js"></script>
   <script>
     // Multi-step form wiring (inline for simplicity)
-    (function() {
+    (function () {
       const panels = document.querySelectorAll('.form-step-panel');
       const stepItems = document.querySelectorAll('.step-item');
 
@@ -791,18 +844,18 @@
       stepItems.forEach((s, i) => s.addEventListener('click', () => showPanel(i)));
 
       // Wire next/prev buttons per panel
-      document.getElementById('form-next')?.addEventListener('click',    () => showPanel(1));
-      document.getElementById('form-prev-1')?.addEventListener('click',  () => showPanel(0));
-      document.getElementById('form-next-1')?.addEventListener('click',  () => showPanel(2));
-      document.getElementById('form-prev-2')?.addEventListener('click',  () => showPanel(1));
-      document.getElementById('form-next-2')?.addEventListener('click',  () => showPanel(3));
-      document.getElementById('form-prev-3')?.addEventListener('click',  () => showPanel(2));
+      document.getElementById('form-next')?.addEventListener('click', () => showPanel(1));
+      document.getElementById('form-prev-1')?.addEventListener('click', () => showPanel(0));
+      document.getElementById('form-next-1')?.addEventListener('click', () => showPanel(2));
+      document.getElementById('form-prev-2')?.addEventListener('click', () => showPanel(1));
+      document.getElementById('form-next-2')?.addEventListener('click', () => showPanel(3));
+      document.getElementById('form-prev-3')?.addEventListener('click', () => showPanel(2));
 
       // Show last step by default (matching Figma)
       showPanel(3);
 
       // Form submit
-      document.getElementById('contact-form')?.addEventListener('submit', function(e) {
+      document.getElementById('contact-form')?.addEventListener('submit', function (e) {
         e.preventDefault();
         const btn = this.querySelector('button[type=submit]');
         btn.textContent = 'Odoslané! Ozveme sa vám. ✓';
@@ -813,4 +866,5 @@
   </script>
 
 </body>
+
 </html>

@@ -3,16 +3,8 @@
    ============================================= */
 
 document.addEventListener('DOMContentLoaded', () => {
-
-  /* --- Nav scroll effect --- */
   const nav = document.querySelector('.nav');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      nav.style.background = 'rgba(10,10,10,0.95)';
-    } else {
-      nav.style.background = 'rgba(10,10,10,0.8)';
-    }
-  });
+
 
   /* --- Services carousel --- */
   const servicesCards = document.querySelector('.services-cards');
@@ -151,17 +143,57 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* --- Smooth anchor links --- */
+  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  const navSections = Array.from(navLinks)
+    .map(link => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+
+  function setActiveNavLink(activeId) {
+    navLinks.forEach(link => {
+      const isActive = activeId && link.getAttribute('href') === `#${activeId}`;
+      if (isActive) {
+        link.setAttribute('aria-current', 'page');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    });
+  }
+
+  function updateActiveNavLink() {
+    const navOffset = (nav ? nav.offsetHeight : 0) + 24;
+    let activeSectionId = '';
+
+    navSections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= navOffset && rect.bottom > navOffset) {
+        activeSectionId = section.id;
+      }
+    });
+
+    setActiveNavLink(activeSectionId);
+  }
+
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', e => {
       const target = document.querySelector(link.getAttribute('href'));
       if (target) {
         e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const navOffset = (nav ? nav.offsetHeight : 0) + 16;
+        const targetTop = target.getBoundingClientRect().top + window.scrollY - navOffset;
+
+        window.scrollTo({
+          top: Math.max(targetTop, 0),
+          behavior: 'smooth',
+        });
       }
     });
   });
 
+  window.addEventListener('scroll', updateActiveNavLink, { passive: true });
+  window.addEventListener('resize', updateActiveNavLink);
+
   /* --- Init --- */
   updateCaseStudy(0);
   showStep(3); // Show contact info step (active in Figma)
+  updateActiveNavLink();
 });

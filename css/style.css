@@ -3,6 +3,78 @@
    Design: Figma node 423:132
    ============================================= */
 
+@font-face {
+  font-family: 'Loos Wide';
+  src: url('../fonts/Loos Wide Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Loos Wide';
+  src: url('../fonts/Loos Wide Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Loos Wide';
+  src: url('../fonts/Loos Wide Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Loos Wide';
+  src: url('../fonts/Loos Wide Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Loos Normal';
+  src: url('../fonts/Loos Normal Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Loos Normal';
+  src: url('../fonts/Loos Normal Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Loos Normal';
+  src: url('../fonts/Loos Normal Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Loos Extended';
+  src: url('../fonts/Loos Extended Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Loos Extended';
+  src: url('../fonts/Loos Extended Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* --- Reset & Base --- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -22,8 +94,8 @@
   --dimmer: #666;   /* --dark/200 */
   --dimmest: #404040; /* --dark/300 */
   --dark-500: #181818;
-  --font-heading: 'Loos Wide', 'Barlow', 'Montserrat', sans-serif;
-  --font-body: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Loos Wide', 'Loos Extended', sans-serif;
+  --font-body: 'Loos Normal', -apple-system, BlinkMacSystemFont, sans-serif;
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
@@ -201,10 +273,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   justify-content: space-between;
   padding: 0 80px;
   height: 72px;
-  background: rgba(10,10,10,0.8);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255,255,255,0.04);
   transition: background 0.3s;
 }
 
@@ -230,16 +298,37 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 40px;
   list-style: none;
+  border-radius: 40px;
+border: 1px solid rgba(255, 255, 255, 0.08);
+background: rgba(255, 255, 255, 0.06);
+backdrop-filter: blur(10px);
+padding: 8px;
+
 }
 
 .nav-links a {
   font-size: 14px;
-  color: var(--dimmer);
-  transition: color 0.2s;
+  color: var(--muted);
+  transition: color 0.2s, background 0.2s;
+  display: flex;
+padding: 8px 24px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+border-radius: 100px;
 }
 .nav-links a:hover { color: var(--white); }
+
+.nav-links a[aria-current="page"] {
+  border-radius: 100px;
+  background: #fff;
+  color: var(--dark-500);
+}
+
+.nav-links a[aria-current="page"]:hover {
+  color: var(--dark-500);
+}
 
 .nav-cta { flex-shrink: 0; }
 
@@ -373,6 +462,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   align-items: center;
   gap: 4px;
   margin-top: -16px;
+  animation: scroll-indicator-fade 1s ease-in-out infinite;
 }
 
 .hero-scroll-text {
@@ -391,6 +481,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(6px); }
+}
+
+@keyframes scroll-indicator-fade {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
 }
 
 /* --- Marquee Ticker --- */
@@ -470,9 +565,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .clients {
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  padding: 40px 20px;
-  max-width: 1280px;
-  margin: auto;
+  padding: 40px 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -488,13 +581,23 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .clients-logos {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 64px;
   width: 100%;
   max-width: var(--max-width);
   overflow: hidden;
+}
+
+.clients-track {
+  display: flex;
+  align-items: center;
+  max-width: 1280px;
+  margin: auto;
+  gap: 64px;
+  width: max-content;
+  animation: clients-scroll 28s linear infinite;
+}
+
+.clients-logos:hover .clients-track {
+  animation-play-state: paused;
 }
 
 .clients-logos::before,
@@ -512,6 +615,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .clients-logo {
   height: 40px;
+  width: auto;
   opacity: 0.4;
   filter: brightness(0) invert(1);
   flex-shrink: 0;
@@ -519,6 +623,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transition: opacity 0.2s;
 }
 .clients-logo:hover { opacity: 0.7; }
+
+@keyframes clients-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - 32px)); }
+}
 
 /* =============================================
    SERVICES

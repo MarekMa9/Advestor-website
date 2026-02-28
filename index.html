@@ -122,7 +122,7 @@
       </div>
 
       <!-- Band 2: accent, tilted positive -->
-      <div class="ticker-band ticker-band--accent" aria-hidden="true">
+      <div class="ticker-band ticker-band--primary-500" aria-hidden="true">
         <div class="ticker-track">
           <span class="ticker-item">Brand Strategy</span><span class="ticker-sep">•</span>
           <span class="ticker-item">Digital Marketing</span><span class="ticker-sep">•</span>
@@ -642,7 +642,7 @@
         <div class="step-item step-item--inactive">
           <div class="step-item-left">
             <span class="step-num">03</span>
-            <span class="step-label" style="line-height:1.4">Rozpočet<br>&amp; časový rámec</span>
+            <span class="step-label" style="line-height:1.4">Rozpočet<br>a časový rámec</span>
           </div>
           <svg class="step-chevron" viewBox="0 0 16 16" fill="none">
             <path d="M6 12l4-4-4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
@@ -686,24 +686,13 @@
         <!-- Step 0: Industry -->
         <div class="form-step-panel" style="display:none;flex-direction:column;gap:32px;flex:1">
           <div class="form-fields">
-            <p style="font-size:16px;color:var(--muted)">V akom odvetví pôsobíte?</p>
-            <div style="display:flex;flex-wrap:wrap;gap:12px">
-              <label
-                style="display:flex;align-items:center;gap:8px;padding:12px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-full);cursor:pointer">
-                <input type="radio" name="industry" value="ecommerce" style="accent-color:#beec1b"> E-commerce
-              </label>
-              <label
-                style="display:flex;align-items:center;gap:8px;padding:12px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-full);cursor:pointer">
-                <input type="radio" name="industry" value="saas" style="accent-color:#beec1b"> SaaS / Tech
-              </label>
-              <label
-                style="display:flex;align-items:center;gap:8px;padding:12px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-full);cursor:pointer">
-                <input type="radio" name="industry" value="services" style="accent-color:#beec1b"> Služby
-              </label>
-              <label
-                style="display:flex;align-items:center;gap:8px;padding:12px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-full);cursor:pointer">
-                <input type="radio" name="industry" value="other" style="accent-color:#beec1b"> Iné
-              </label>
+            <p style="font-size:16px;color:var(--dark-100)">V akom odvetví pôsobíte?</p>
+            <input type="hidden" name="industry" id="industry-input" form="contact-form">
+            <div class="form-option-grid" data-option-group="industry">
+              <button class="form-option" type="button" data-value="ecommerce">E-commerce</button>
+              <button class="form-option" type="button" data-value="saas">SaaS / Tech</button>
+              <button class="form-option" type="button" data-value="services">Služby</button>
+              <button class="form-option" type="button" data-value="other">Iné</button>
             </div>
           </div>
           <div class="form-actions">
@@ -721,7 +710,7 @@
         <!-- Step 1: Problem -->
         <div class="form-step-panel" style="display:none;flex-direction:column;gap:32px;flex:1">
           <div class="form-fields">
-            <p style="font-size:16px;color:var(--muted)">Aký je váš hlavný marketingový problém?</p>
+            <p style="font-size:16px;color:var(--dark-100)">Aký je váš hlavný marketingový problém?</p>
             <textarea class="form-input" rows="5" placeholder="Opíšte váš problém alebo cieľ..."
               style="resize:vertical"></textarea>
           </div>
@@ -740,20 +729,12 @@
         <!-- Step 2: Budget -->
         <div class="form-step-panel" style="display:none;flex-direction:column;gap:32px;flex:1">
           <div class="form-fields">
-            <p style="font-size:16px;color:var(--muted)">Mesačný rozpočet na marketing</p>
-            <div style="display:flex;flex-wrap:wrap;gap:12px">
-              <label
-                style="display:flex;align-items:center;gap:8px;padding:12px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-full);cursor:pointer">
-                <input type="radio" name="budget" value="500-1000" style="accent-color:#beec1b"> 500 – 1 000 €
-              </label>
-              <label
-                style="display:flex;align-items:center;gap:8px;padding:12px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-full);cursor:pointer">
-                <input type="radio" name="budget" value="1000-3000" style="accent-color:#beec1b"> 1 000 – 3 000 €
-              </label>
-              <label
-                style="display:flex;align-items:center;gap:8px;padding:12px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-full);cursor:pointer">
-                <input type="radio" name="budget" value="3000+" style="accent-color:#beec1b"> 3 000+ €
-              </label>
+            <p style="font-size:16px;color:var(--dark-100)">Mesačný rozpočet na marketing</p>
+            <input type="hidden" name="budget" id="budget-input" form="contact-form">
+            <div class="form-option-grid" data-option-group="budget">
+              <button class="form-option" type="button" data-value="500-1000">500 – 1 000 €</button>
+              <button class="form-option" type="button" data-value="1000-3000">1 000 – 3 000 €</button>
+              <button class="form-option" type="button" data-value="3000+">3 000+ €</button>
             </div>
           </div>
           <div class="form-actions">
@@ -832,6 +813,7 @@
     (function () {
       const panels = document.querySelectorAll('.form-step-panel');
       const stepItems = document.querySelectorAll('.step-item');
+      const optionGroups = document.querySelectorAll('[data-option-group]');
 
       function showPanel(idx) {
         panels.forEach((p, i) => p.style.display = i === idx ? 'flex' : 'none');
@@ -839,6 +821,25 @@
           s.className = 'step-item ' + (i === idx ? 'step-item--active' : 'step-item--inactive');
         });
       }
+
+      optionGroups.forEach(group => {
+        const hiddenInput = document.getElementById(group.dataset.optionGroup + '-input');
+        const options = group.querySelectorAll('.form-option');
+
+        options.forEach(option => {
+          option.addEventListener('click', () => {
+            options.forEach(btn => {
+              btn.classList.remove('form-option--active');
+              btn.setAttribute('aria-pressed', 'false');
+            });
+
+            option.classList.add('form-option--active');
+            option.setAttribute('aria-pressed', 'true');
+
+            if (hiddenInput) hiddenInput.value = option.dataset.value || '';
+          });
+        });
+      });
 
       // Wire step clicks
       stepItems.forEach((s, i) => s.addEventListener('click', () => showPanel(i)));
@@ -851,8 +852,8 @@
       document.getElementById('form-next-2')?.addEventListener('click', () => showPanel(3));
       document.getElementById('form-prev-3')?.addEventListener('click', () => showPanel(2));
 
-      // Show last step by default (matching Figma)
-      showPanel(3);
+      // Show first step by default
+      showPanel(0);
 
       // Form submit
       document.getElementById('contact-form')?.addEventListener('submit', function (e) {

@@ -194,6 +194,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* --- Init --- */
   updateCaseStudy(0);
-  showStep(3); // Show contact info step (active in Figma)
+  showStep(0);
   updateActiveNavLink();
 });

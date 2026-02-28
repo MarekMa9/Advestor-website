@@ -192,6 +192,27 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', updateActiveNavLink, { passive: true });
   window.addEventListener('resize', updateActiveNavLink);
 
+  /* --- Mobile hamburger menu --- */
+  const hamburger = document.getElementById('nav-hamburger');
+  const mobileOverlay = document.getElementById('nav-mobile-overlay');
+
+  hamburger?.addEventListener('click', function () {
+    const isOpen = this.getAttribute('aria-expanded') === 'true';
+    this.setAttribute('aria-expanded', String(!isOpen));
+    mobileOverlay?.setAttribute('aria-hidden', String(isOpen));
+    mobileOverlay?.classList.toggle('is-open', !isOpen);
+    document.body.style.overflow = isOpen ? '' : 'hidden';
+  });
+
+  mobileOverlay?.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger?.setAttribute('aria-expanded', 'false');
+      mobileOverlay.setAttribute('aria-hidden', 'true');
+      mobileOverlay.classList.remove('is-open');
+      document.body.style.overflow = '';
+    });
+  });
+
   /* --- Init --- */
   updateCaseStudy(0);
   showStep(0);

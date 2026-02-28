@@ -271,7 +271,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 80px;
+  padding: 0 20px;
+  max-width: var(--max-width);
   height: 72px;
   transition: background 0.3s;
 }
@@ -1375,3 +1376,304 @@ background: #ffffffba;
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+
+/* =============================================
+   NAV HAMBURGER — hidden on desktop by default
+   ============================================= */
+.nav-hamburger {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-full);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.nav-hamburger:hover { background: rgba(255,255,255,0.1); }
+
+/* =============================================
+   MOBILE MENU OVERLAY — hidden by default
+   ============================================= */
+.nav-mobile-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 98;
+  background: var(--bg);
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 100px 20px 48px;
+  gap: 0;
+  overflow-y: auto;
+}
+.nav-mobile-overlay.is-open { display: flex; }
+
+.nav-mobile-links {
+  list-style: none;
+  width: 100%;
+  flex: 1;
+}
+.nav-mobile-links a {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: var(--dark-100);
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.2s;
+}
+.nav-mobile-links a:hover { color: var(--white); }
+
+.nav-mobile-cta {
+  margin-top: 32px;
+  width: 100%;
+  justify-content: center;
+}
+
+/* =============================================
+   MOBILE STYLES — max-width: 768px
+   All adjustments strictly inside @media.
+   Desktop styles are NOT modified.
+   ============================================= */
+@media (max-width: 768px) {
+
+  /* === NAVIGATION === */
+  .nav {
+    padding: 0 20px;
+    height: 64px;
+    justify-content: center;
+  }
+
+  .nav-links,
+  .nav-cta {
+    display: none;
+  }
+
+  .nav-hamburger {
+    display: flex;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* === HERO === */
+  .hero-content {
+    padding: 32px 20px 24px;
+    gap: 20px;
+  }
+
+  .hero-badge {
+    align-self: center;
+  }
+
+  .hero-headline {
+    font-size: 36px;
+    letter-spacing: -1px;
+    max-width: 100%;
+    text-align: center
+  }
+
+  .hero-subtitle {
+    font-size: 15px;
+    max-width: 100%;
+    text-align: center
+  }
+
+  .hero-ctas {
+    align-self: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .hero-ctas .btn-primary,
+  .hero-ctas .btn-secondary {
+    width: 100%;
+    max-width: 400px;
+    justify-content: center;
+  }
+
+  .hero-scroll {
+    margin-top: 0;
+  }
+
+  /* === CLIENTS === */
+  .clients {
+    padding: 32px 0;
+    gap: 24px;
+  }
+
+  /* === SERVICES === */
+  .services {
+    padding: 48px 0 40px;
+    gap: 40px;
+  }
+
+  .services-header {
+    text-align: center;
+    align-items: center;
+  }
+
+  .services-header .h2 {
+    font-size: 28px;
+    letter-spacing: -0.8px;
+      text-align: center;
+  }
+
+  .services-cards {
+    padding: 8px 20px 16px;
+    gap: 12px;
+  }
+
+  .service-card {
+    width: 280px;
+    min-height: 320px;
+    padding: 24px;
+  }
+
+  .services-nav {
+    padding: 0 20px;
+  }
+
+  /* === PORTFOLIO === */
+  .portfolio {
+    padding: 32px 20px 48px;
+    gap: 40px;
+  }
+
+  .portfolio-header {
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+  }
+  .portfolio-header-left .tagline{
+    text-align: center;
+  }
+
+  .portfolio-header-left .h2 {
+    font-size: 28px;
+    letter-spacing: -0.8px;
+    text-align: center;
+  }
+
+  .portfolio-header-right {
+    text-align: center;
+    font-size: 15px;
+    max-width: 100%;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    row-gap: 40px;
+  }
+
+  .portfolio-image {
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  /* === CASE STUDIES === */
+  .case-studies {
+    padding: 32px 20px;
+    gap: 32px;
+  }
+
+  .case-studies-header {
+    align-items: center;
+    text-align: center;
+  }
+
+  .case-studies-header .h2 {
+    font-size: 28px;
+    letter-spacing: -0.8px;
+    text-align: center;
+  }
+
+  .case-studies-tabs {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .case-card-body {
+    padding: 20px 16px 28px;
+    gap: 24px;
+  }
+
+  .case-card-info {
+    max-width: 100%;
+  }
+
+  .case-charts {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .chart-card {
+    height: 220px;
+  }
+
+  /* === CONTACT === */
+  .contact {
+    padding: 32px 20px 48px;
+    gap: 40px;
+  }
+
+  .contact-header .h1 {
+    font-size: 40px;
+    letter-spacing: -1.2px;
+    max-width: 100%;
+  }
+
+  .contact-card {
+    flex-direction: column;
+    min-height: unset;
+  }
+
+  .contact-steps {
+    display: none;
+  }
+
+  .contact-form {
+    padding: 20px;
+    gap: 28px;
+  }
+
+  .form-actions {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* === FOOTER === */
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 24px 0 0;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+    font-size: 12px;
+  }
+
+}

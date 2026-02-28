@@ -103,7 +103,7 @@ function agencyEmail(
         $buCell = $bu ? "
           <td width='50%' style='padding-right:6px;'>
             <div style='background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px 20px;'>
-              <p style='margin:0 0 4px;font-size:11px;font-weight:600;letter-spacing:1.2px;color:#BEEC1B;text-transform:uppercase;font-family:Arial,sans-serif;'>Rozpočet</p>
+              <p style='margin:0 0 4px;font-size:11px;font-weight:600;letter-spacing:1.2px;color:#888888;text-transform:uppercase;font-family:Arial,sans-serif;'>Rozpočet</p>
               <p style='margin:0;font-size:16px;font-weight:700;color:#FFFFFF;font-family:Arial,sans-serif;'>$bu</p>
             </div>
           </td>" : '<td width="50%"></td>';
@@ -111,7 +111,7 @@ function agencyEmail(
         $tiCell = $ti ? "
           <td width='50%' style='padding-left:6px;'>
             <div style='background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px 20px;'>
-              <p style='margin:0 0 4px;font-size:11px;font-weight:600;letter-spacing:1.2px;color:#BEEC1B;text-transform:uppercase;font-family:Arial,sans-serif;'>Časový rámec</p>
+              <p style='margin:0 0 4px;font-size:11px;font-weight:600;letter-spacing:1.2px;color:#888888;text-transform:uppercase;font-family:Arial,sans-serif;'>Časový rámec</p>
               <p style='margin:0;font-size:16px;font-weight:700;color:#FFFFFF;font-family:Arial,sans-serif;'>$ti</p>
             </div>
           </td>" : '<td width="50%"></td>';
@@ -137,7 +137,7 @@ function agencyEmail(
 
   <!-- Logo -->
   <tr><td style="padding:0 0 28px;text-align:center;">
-    <img src="advestor-logo-light.png" alt="Advestor.sk" width="110" height="69" border="0" style="display:block;margin:0 auto;">
+    <img src="https://advestor.sk/images/advestor-logo-light.png" alt="Advestor.sk" width="110" height="69" border="0" style="display:block;margin:0 auto;">
   </td></tr>
 
   <!-- Card -->
@@ -206,7 +206,7 @@ function clientEmail(string $name): string {
 
   <!-- Logo -->
   <tr><td style="padding:0 0 28px;text-align:center;">
-    <img src="advestor-logo-light.png" alt="Advestor.sk" width="110" height="69" border="0" style="display:block;margin:0 auto;">
+    <img src="https://advestor.sk/images/advestor-logo-light.png" alt="Advestor.sk" width="110" height="69" border="0" style="display:block;margin:0 auto;">
   </td></tr>
 
   <!-- Card -->

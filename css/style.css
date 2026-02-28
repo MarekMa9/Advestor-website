@@ -397,7 +397,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .ticker-wrapper {
   position: relative;
   width: 100%;
-  overflow: hidden;
+  /*overflow: hidden;*/
   margin-top: 24px;
 }
 
@@ -470,7 +470,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .clients {
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  padding: 40px 80px;
+  padding: 40px 20px;
+  max-width: 1280px;
+  margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -550,7 +552,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   align-items: center;
   gap: 24px;
   text-align: center;
-  padding: 0 80px;
+  padding: 0 20px;
+  max-width: var(--max-width);
   width: 100%;
 }
 
@@ -644,7 +647,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
    PORTFOLIO
    ============================================= */
 .portfolio {
-  padding: 40px 80px 72px;
+  padding: 40px 20px 72px;
+  max-width: var(--max-width);
+  margin: auto;
   display: flex;
   flex-direction: column;
   gap: 64px;
@@ -720,7 +725,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
    ============================================= */
 .case-studies {
   position: relative;
-  padding: 40px 80px;
+  padding: 40px 20px;
+  max-width: var(--max-width);
+  margin: auto;
   display: flex;
   flex-direction: column;
   gap: 48px;
@@ -1005,7 +1012,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
    CONTACT / CTA
    ============================================= */
 .contact {
-  padding: 40px 80px 72px;
+  padding: 40px 20px 72px;
+  max-width: var(--max-width);
+  margin: auto;
   display: flex;
   flex-direction: column;
   gap: 80px;
@@ -1152,11 +1161,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
    FOOTER
    ============================================= */
 .footer {
-  padding: 0 80px;
+  padding: 0 20px;
+  max-width: var(--max-width);
+  margin: auto;
   display: flex;
   flex-direction: column;
   gap: 32px;
-  border-top: 1px solid var(--border);
 }
 
 .footer-top {

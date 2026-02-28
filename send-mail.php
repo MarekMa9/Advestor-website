@@ -102,7 +102,7 @@ function agencyEmail(
     if ($bu || $ti) {
         $buCell = $bu ? "
           <td width='50%' style='padding-right:6px;'>
-            <div style='background:rgba(190,236,27,0.08);border:1px solid rgba(190,236,27,0.2);border-radius:10px;padding:16px 20px;'>
+            <div style='background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px 20px;'>
               <p style='margin:0 0 4px;font-size:11px;font-weight:600;letter-spacing:1.2px;color:#BEEC1B;text-transform:uppercase;font-family:Arial,sans-serif;'>Rozpočet</p>
               <p style='margin:0;font-size:16px;font-weight:700;color:#FFFFFF;font-family:Arial,sans-serif;'>$bu</p>
             </div>
@@ -110,7 +110,7 @@ function agencyEmail(
 
         $tiCell = $ti ? "
           <td width='50%' style='padding-left:6px;'>
-            <div style='background:rgba(190,236,27,0.08);border:1px solid rgba(190,236,27,0.2);border-radius:10px;padding:16px 20px;'>
+            <div style='background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px 20px;'>
               <p style='margin:0 0 4px;font-size:11px;font-weight:600;letter-spacing:1.2px;color:#BEEC1B;text-transform:uppercase;font-family:Arial,sans-serif;'>Časový rámec</p>
               <p style='margin:0;font-size:16px;font-weight:700;color:#FFFFFF;font-family:Arial,sans-serif;'>$ti</p>
             </div>
@@ -155,7 +155,7 @@ function agencyEmail(
 
       <!-- Contact badge -->
       <tr><td style="padding:0 0 24px;">
-        <table cellpadding="0" cellspacing="0" style="background:rgba(190,236,27,0.08);border:1px solid rgba(190,236,27,0.2);border-radius:12px;width:100%;">
+        <table cellpadding="0" cellspacing="0" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:12px;width:100%;">
         <tr><td style="padding:20px 24px;">
           <p style="margin:0;font-size:20px;font-weight:700;color:#FFFFFF;font-family:Arial,sans-serif;">$n$companyLine</p>
           <p style="margin:8px 0 0;">

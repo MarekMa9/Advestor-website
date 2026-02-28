@@ -730,7 +730,7 @@
         <div class="form-step-panel" style="display:none;flex-direction:column;gap:32px;flex:1">
           <div class="form-fields">
             <p style="font-size:16px;color:var(--dark-100)">Aký je váš hlavný marketingový problém?</p>
-            <textarea class="form-input" rows="5" placeholder="Opíšte váš problém alebo cieľ..."
+            <textarea class="form-input" id="problem-textarea" name="problem" form="contact-form" rows="5" placeholder="Opíšte váš problém alebo cieľ..."
               style="resize:vertical"></textarea>
           </div>
           <div class="form-actions">
@@ -800,18 +800,32 @@
           </form>
           <div class="form-actions">
             <button class="btn-ghost" id="form-prev-3" type="button">Späť</button>
-            <button class="btn-primary" type="submit" form="contact-form">
-              Odoslať 
+            <button class="btn-primary" id="form-submit-btn" type="submit" form="contact-form">
+              Odoslať
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M3.75 9H14.25" stroke="#0A0A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M9 3.75L14.25 9L9 14.25" stroke="#0A0A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
+                <path d="M3.75 9H14.25" stroke="#0A0A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 3.75L14.25 9L9 14.25" stroke="#0A0A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
             </button>
           </div>
         </div>
 
       </div><!-- /contact-form -->
+
+      <!-- Success state -->
+      <div class="contact-success" id="contact-success" aria-hidden="true">
+        <div class="contact-success-icon">
+          <svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="48" cy="48" r="48" fill="#BEEC1B"/>
+            <path d="M28 50L42 64L68 34" stroke="#0A0A0A" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="contact-success-text">
+          <p class="contact-success-title">Kontaktný formulár</p>
+          <p class="contact-success-subtitle">bol úspešne odoslaný</p>
+        </div>
+      </div>
+
     </div><!-- /contact-card -->
   </section>
 
@@ -888,13 +902,38 @@
       // Show first step by default
       showPanel(0);
 
-      // Form submit
-      document.getElementById('contact-form')?.addEventListener('submit', function (e) {
+      // Form submit – AJAX
+      document.getElementById('contact-form')?.addEventListener('submit', async function (e) {
         e.preventDefault();
-        const btn = this.querySelector('button[type=submit]');
-        btn.textContent = 'Odoslané! Ozveme sa vám. ✓';
-        btn.style.background = '#2a6e00';
+
+        const btn = document.getElementById('form-submit-btn');
+        const originalHTML = btn.innerHTML;
         btn.disabled = true;
+        btn.textContent = 'Odosielam...';
+
+        const formData = new FormData(this); // includes inputs with form="contact-form"
+
+        try {
+          const res  = await fetch('send-mail.php', { method: 'POST', body: formData });
+          const data = await res.json();
+
+          if (data.success) {
+            const card = document.querySelector('.contact-card');
+            card.querySelector('.contact-steps').style.display = 'none';
+            card.querySelector('.contact-form').style.display  = 'none';
+            const success = document.getElementById('contact-success');
+            success.removeAttribute('aria-hidden');
+            success.style.display = 'flex';
+          } else {
+            btn.disabled = false;
+            btn.innerHTML = originalHTML;
+            alert(data.message || 'Nastala chyba. Skúste znova.');
+          }
+        } catch {
+          btn.disabled = false;
+          btn.innerHTML = originalHTML;
+          alert('Nastala chyba pri odosielaní. Skúste znova.');
+        }
       });
     })();
   </script>

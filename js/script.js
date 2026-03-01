@@ -113,35 +113,6 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCaseStudy(activeTab);
   });
 
-  /* --- Contact multi-step form --- */
-  const steps = document.querySelectorAll('.step-item');
-  const formStepPanels = document.querySelectorAll('.form-step-panel');
-  let currentStep = 0;
-
-  function showStep(index) {
-    steps.forEach((s, i) => {
-      s.className = 'step-item ' + (i === index ? 'step-item--active' : 'step-item--inactive');
-    });
-    formStepPanels.forEach((p, i) => {
-      p.style.display = i === index ? 'flex' : 'none';
-    });
-    currentStep = index;
-  }
-
-  steps.forEach((step, i) => {
-    step.addEventListener('click', () => showStep(i));
-  });
-
-  const formNext = document.getElementById('form-next');
-  const formPrev = document.getElementById('form-prev');
-
-  if (formNext) formNext.addEventListener('click', () => {
-    if (currentStep < steps.length - 1) showStep(currentStep + 1);
-  });
-  if (formPrev) formPrev.addEventListener('click', () => {
-    if (currentStep > 0) showStep(currentStep - 1);
-  });
-
   /* --- Smooth anchor links --- */
   const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
   const navSections = Array.from(navLinks)
@@ -215,6 +186,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* --- Init --- */
   updateCaseStudy(0);
-  showStep(0);
   updateActiveNavLink();
 });

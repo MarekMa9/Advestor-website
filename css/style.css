@@ -1224,7 +1224,7 @@ max-width: 640px; }
   padding: 24px 40px;
   display: flex;
   flex-direction: column;
-  gap: 64px;
+  gap: 40px;
 }
 
 /* ── Contact success state ─────────────────────────────────────────── */

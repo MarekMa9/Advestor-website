@@ -18,8 +18,10 @@ $email    = trim($_POST['email']    ?? '');
 $phone    = trim($_POST['phone']    ?? '');
 $industry = trim($_POST['industry'] ?? '');
 $problem  = trim($_POST['problem']  ?? '');
-$budget   = trim($_POST['budget']   ?? '');
-$timeline = trim($_POST['timeline'] ?? '');
+$revenue  = trim($_POST['revenue']  ?? '');
+$effort   = trim($_POST['effort']   ?? '');
+$website  = trim($_POST['website']  ?? '');
+$social   = trim($_POST['social']   ?? '');
 
 if (!$name || !$email || !$phone || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     http_response_code(400);
@@ -33,21 +35,21 @@ $industryMap = [
     'services'  => 'Služby',
     'other'     => 'Iné',
 ];
-$budgetMap = [
-    '500-1000'  => '500 – 1 000 €',
-    '1000-3000' => '1 000 – 3 000 €',
-    '3000+'     => '3 000+ €',
+$revenueMap = [
+    'do-5000'       => 'Do 5 000 €',
+    '5000-20000'    => '5 000 € – 20 000 €',
+    '20000-100000'  => '20 000 € – 100 000 €',
+    'nad-100000'    => 'Nad 100 000 €',
+    'startup'       => 'Ešte nepredávame (start-up)',
 ];
-$timelineMap = [
-    'do-1m'    => 'Do 1 mesiaca',
-    '1-3m'     => '1 – 3 mesiace',
-    '3-6m'     => '3 – 6 mesiacov',
-    'dlhodoby' => 'Dlhodobá spolupráca',
+$effortMap = [
+    'dynamicky' => 'Rozumiem a som pripravený na dynamickú spoluprácu.',
+    'pasivny'   => 'Mám obmedzené kapacity, preferujem pasívny prístup.',
 ];
 
 $industryLabel = $industryMap[$industry] ?? $industry;
-$budgetLabel   = $budgetMap[$budget]     ?? $budget;
-$timelineLabel = $timelineMap[$timeline] ?? $timeline;
+$revenueLabel  = $revenueMap[$revenue]   ?? $revenue;
+$effortLabel   = $effortMap[$effort]     ?? $effort;
 
 /* ── SMTP factory ─────────────────────────────────────────────────── */
 function makeMailer(): PHPMailer {
@@ -72,11 +74,13 @@ function h(string $s): string {
 /* ── Agency e-mail template ───────────────────────────────────────── */
 function agencyEmail(
     string $name, string $company, string $email, string $phone,
-    string $industry, string $problem, string $budget, string $timeline
+    string $industry, string $problem, string $revenue, string $effort,
+    string $website, string $social
 ): string {
     $n  = h($name);   $co = h($company);
     $em = h($email);  $ph = h($phone);
-    $ind = h($industry); $bu = h($budget); $ti = h($timeline);
+    $ind = h($industry); $rev = h($revenue); $eff = h($effort);
+    $web = h($website); $soc = h($social);
 
     $companyLine = $co
         ? "<br><span style='font-size:14px;color:#888888;font-family:Arial,sans-serif;'>$co</span>"
@@ -98,27 +102,43 @@ function agencyEmail(
         </div>
       </td></tr>" : '';
 
-    $budgetTimelineBlock = '';
-    if ($bu || $ti) {
-        $buCell = $bu ? "
+    $revenueBlock = $rev ? "
+      <tr><td style='padding:0 0 12px;'>
+        <div style='background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px 20px;'>
+          <p style='margin:0 0 4px;font-size:11px;font-weight:600;letter-spacing:1.2px;color:#888888;text-transform:uppercase;font-family:Arial,sans-serif;'>Mesačný obrat</p>
+          <p style='margin:0;font-size:16px;font-weight:700;color:#FFFFFF;font-family:Arial,sans-serif;'>$rev</p>
+        </div>
+      </td></tr>" : '';
+
+    $effortBlock = $eff ? "
+      <tr><td style='padding:0 0 12px;'>
+        <div style='background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px 20px;'>
+          <p style='margin:0 0 4px;font-size:11px;font-weight:600;letter-spacing:1.2px;color:#888888;text-transform:uppercase;font-family:Arial,sans-serif;'>Partnerstvo</p>
+          <p style='margin:0;font-size:15px;color:#F5F5F5;line-height:1.6;font-family:Arial,sans-serif;'>$eff</p>
+        </div>
+      </td></tr>" : '';
+
+    $webSocialBlock = '';
+    if ($web || $soc) {
+        $webCell = $web ? "
           <td width='50%' style='padding-right:6px;'>
             <div style='background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px 20px;'>
-              <p style='margin:0 0 4px;font-size:11px;font-weight:600;letter-spacing:1.2px;color:#888888;text-transform:uppercase;font-family:Arial,sans-serif;'>Rozpočet</p>
-              <p style='margin:0;font-size:16px;font-weight:700;color:#FFFFFF;font-family:Arial,sans-serif;'>$bu</p>
+              <p style='margin:0 0 4px;font-size:11px;font-weight:600;letter-spacing:1.2px;color:#888888;text-transform:uppercase;font-family:Arial,sans-serif;'>Web</p>
+              <a href='$web' style='color:#BEEC1B;text-decoration:none;font-size:14px;font-family:Arial,sans-serif;'>$web</a>
             </div>
           </td>" : '<td width="50%"></td>';
 
-        $tiCell = $ti ? "
+        $socCell = $soc ? "
           <td width='50%' style='padding-left:6px;'>
             <div style='background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px 20px;'>
-              <p style='margin:0 0 4px;font-size:11px;font-weight:600;letter-spacing:1.2px;color:#888888;text-transform:uppercase;font-family:Arial,sans-serif;'>Časový rámec</p>
-              <p style='margin:0;font-size:16px;font-weight:700;color:#FFFFFF;font-family:Arial,sans-serif;'>$ti</p>
+              <p style='margin:0 0 4px;font-size:11px;font-weight:600;letter-spacing:1.2px;color:#888888;text-transform:uppercase;font-family:Arial,sans-serif;'>Sociálne siete</p>
+              <p style='margin:0;font-size:14px;color:#F5F5F5;font-family:Arial,sans-serif;'>$soc</p>
             </div>
           </td>" : '<td width="50%"></td>';
 
-        $budgetTimelineBlock = "
+        $webSocialBlock = "
       <tr><td style='padding:0 0 12px;'>
-        <table width='100%' cellpadding='0' cellspacing='0'><tr>$buCell$tiCell</tr></table>
+        <table width='100%' cellpadding='0' cellspacing='0'><tr>$webCell$socCell</tr></table>
       </td></tr>";
     }
 
@@ -169,7 +189,9 @@ function agencyEmail(
 
       $industryBlock
       $problemBlock
-      $budgetTimelineBlock
+      $revenueBlock
+      $effortBlock
+      $webSocialBlock
 
     </table>
   </td></tr>
@@ -277,8 +299,8 @@ try {
     $m->addAddress('martin@advestor.sk', 'Martin');
     $m->isHTML(true);
     $m->Subject = 'Nový dopyt z webu – ' . $name . ($company ? " ($company)" : '');
-    $m->Body    = agencyEmail($name, $company, $email, $phone, $industryLabel, $problem, $budgetLabel, $timelineLabel);
-    $m->AltBody = "Nový dopyt\nMeno: $name\nEmail: $email\nTel: $phone";
+    $m->Body    = agencyEmail($name, $company, $email, $phone, $industryLabel, $problem, $revenueLabel, $effortLabel, $website, $social);
+    $m->AltBody = "Nový dopyt\nMeno: $name\nEmail: $email\nTel: $phone" . ($website ? "\nWeb: $website" : '') . ($social ? "\nSociálne: $social" : '');
     $m->send();
 } catch (Exception $e) {
     $errors[] = 'agency';

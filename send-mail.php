@@ -106,7 +106,7 @@ function agencyEmail(
       <tr><td style='padding:0 0 12px;'>
         <div style='background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px 20px;'>
           <p style='margin:0 0 4px;font-size:11px;font-weight:600;letter-spacing:1.2px;color:#888888;text-transform:uppercase;font-family:Arial,sans-serif;'>Mesačný obrat</p>
-          <p style='margin:0;font-size:16px;font-weight:700;color:#FFFFFF;font-family:Arial,sans-serif;'>$rev</p>
+          <p style='margin:0;font-size:16px;;color:#FFFFFF;font-family:Arial,sans-serif;'>$rev</p>
         </div>
       </td></tr>" : '';
 
@@ -168,7 +168,7 @@ function agencyEmail(
         <h1 style="margin:0;font-size:26px;font-weight:700;color:#FFFFFF;font-family:Arial,sans-serif;letter-spacing:-0.5px;">Nový dopyt z webu</h1>
       </td></tr>
       <tr><td style="padding:0 0 24px;">
-        <p style="margin:0;font-size:13px;color:#666666;font-family:Arial,sans-serif;">Prišiel nový vyplnený formulár na advestor.sk</p>
+        <p style="margin:0;font-size:13px;color:#666666;font-family:Arial,sans-serif;">Prišiel nový vyplnený formulár na <span  style="color:#beec1b;text-decoration:none;"> advestor.sk</span></p>
       </td></tr>
 
       <tr><td style="padding:0 0 24px;"><hr style="border:none;border-top:1px solid rgba(255,255,255,0.08);margin:0;"></td></tr>

@@ -1042,6 +1042,25 @@
             const success = document.getElementById('contact-success');
             success.removeAttribute('aria-hidden');
             success.style.display = 'flex';
+
+            // GA4 generate_lead event with advanced tracking
+            const fullName  = (formData.get('name') || '').trim().split(' ');
+            const firstName = fullName[0] || '';
+            const lastName  = fullName.slice(1).join(' ') || '';
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+              event: 'generate_lead',
+              user_data: {
+                email:        (formData.get('email')   || '').trim().toLowerCase(),
+                phone_number: (formData.get('phone')   || '').trim().replace(/\s/g, ''),
+                first_name:   firstName.toLowerCase(),
+                last_name:    lastName.toLowerCase(),
+              },
+              lead_industry: formData.get('industry') || undefined,
+              lead_revenue:  formData.get('revenue')  || undefined,
+              lead_effort:   formData.get('effort')   || undefined,
+              lead_company:  formData.get('company')  || undefined,
+            });
           } else {
             btn.disabled = false;
             btn.innerHTML = originalHTML;

@@ -60,7 +60,7 @@ function makeMailer(): PHPMailer {
     $m->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $m->Port       = 587;
     $m->CharSet    = 'UTF-8';
-    $m->setFrom('marek@advestor.sk', 'Advestor.sk');
+    $m->setFrom('info@advestor.sk', 'Advestor.sk');
     return $m;
 }
 
@@ -154,7 +154,7 @@ function agencyEmail(
       <tr><td style="padding:0 0 24px;"><hr style="border:none;border-top:1px solid rgba(255,255,255,0.08);margin:0;"></td></tr>
 
       <!-- Contact badge -->
-      <tr><td style="padding:0 0 24px;">
+      <tr><td style="padding:0 0 12px;">
         <table cellpadding="0" cellspacing="0" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:12px;width:100%;">
         <tr><td style="padding:20px 24px;">
           <p style="margin:0;font-size:20px;font-weight:700;color:#FFFFFF;font-family:Arial,sans-serif;">$n$companyLine</p>
@@ -176,7 +176,7 @@ function agencyEmail(
 
   <!-- Footer -->
   <tr><td style="padding:24px 0 0;text-align:center;">
-    <p style="margin:0;font-size:12px;color:#444444;font-family:Arial,sans-serif;">© 2026 Advestor GROUP s.r.o. &nbsp;&middot;&nbsp; Automatická notifikácia</p>
+    <p style="margin:0;font-size:12px;color:#666666;font-family:Arial,sans-serif;">© 2026 Advestor GROUP s.r.o. &nbsp;&middot;&nbsp; Automatická notifikácia</p>
   </td></tr>
 
 </table>
@@ -248,15 +248,15 @@ function clientEmail(string $name): string {
   <tr><td style="padding:12px 0 0;">
     <table cellpadding="0" cellspacing="0" style="width:100%;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
     <tr><td style="padding:20px 24px;">
-      <p style="margin:0 0 4px;font-size:12px;color:#555555;font-family:Arial,sans-serif;">Máte otázky? Napíšte nám priamo:</p>
-      <a href="mailto:marek@advestor.sk" style="color:#BEEC1B;text-decoration:none;font-size:15px;font-weight:600;font-family:Arial,sans-serif;">info@advestor.sk</a>
+      <p style="margin:0 0 4px;font-size:12px;color:#666666;font-family:Arial,sans-serif;">Máte otázky? Napíšte nám priamo:</p>
+      <a href="mailto:info@advestor.sk" style="color:#BEEC1B;text-decoration:none;font-size:15px;font-weight:600;font-family:Arial,sans-serif;">info@advestor.sk</a>
     </td></tr>
     </table>
   </td></tr>
 
   <!-- Footer -->
   <tr><td style="padding:24px 0 0;text-align:center;">
-    <p style="margin:0;font-size:12px;color:#444444;font-family:Arial,sans-serif;">© 2026 Advestor GROUP s.r.o. &nbsp;&middot;&nbsp; Všetky práva vyhradené</p>
+    <p style="margin:0;font-size:12px;color:#666666;font-family:Arial,sans-serif;">© 2026 Advestor GROUP s.r.o. &nbsp;&middot;&nbsp; Všetky práva vyhradené</p>
   </td></tr>
 
 </table>
@@ -273,7 +273,8 @@ $errors = [];
 // Email 1 – Agency notification
 try {
     $m = makeMailer();
-    $m->addAddress('info@advestor.sk', 'Advestor');
+    $m->addAddress('marek@advestor.sk', 'Marek');
+    $m->addAddress('martin@advestor.sk', 'Martin');
     $m->isHTML(true);
     $m->Subject = 'Nový dopyt z webu – ' . $name . ($company ? " ($company)" : '');
     $m->Body    = agencyEmail($name, $company, $email, $phone, $industryLabel, $problem, $budgetLabel, $timelineLabel);

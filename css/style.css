@@ -1394,7 +1394,13 @@ background: #ffffffba;
 .footer-links {
   display: flex;
   gap: 32px;
+  align-items: center;
 }
+
+.google-badge{
+  width: 90px;
+}
+
 
 .footer-links a {
   font-size: 14px;
@@ -1734,6 +1740,12 @@ background: #ffffffba;
     flex-wrap: wrap;
     justify-content: center;
     gap: 16px;
+  }
+
+  .footer-google-badge {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   .footer-bottom {

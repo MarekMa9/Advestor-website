@@ -628,13 +628,12 @@
         </div>
 
         <!-- Charts -->
-        <div class="case-charts">
-
-          <!-- Bar chart: Before vs After -->
-          <div class="chart-card">
+        <div class="case-charts" id="case-charts-container">
+          <!-- Chart 1 -->
+          <div class="chart-card" id="chart-card-1">
             <div class="chart-card-header">
-              <span class="chart-title">Konverzie: Pred vs. Po</span>
-              <div class="chart-legend">
+              <span class="chart-title" id="chart1-title">Tržby z reklám (€)</span>
+              <div class="chart-legend" id="chart1-legend">
                 <div class="legend-item">
                   <div class="legend-dot" style="background:#333"></div>
                   <span>Pred</span>
@@ -645,84 +644,23 @@
                 </div>
               </div>
             </div>
-            <!-- SVG Bar chart -->
-            <div style="flex:1;display:flex;flex-direction:column">
-              <div style="flex:1;display:flex;align-items:flex-end;gap:12px;padding:0 4px">
-                <div class="bar-group">
-                  <div class="bar bar--before" style="height:15%"></div>
-                  <div class="bar bar--after" style="height:35%"></div>
-                </div>
-                <div class="bar-group">
-                  <div class="bar bar--before" style="height:20%"></div>
-                  <div class="bar bar--after" style="height:50%"></div>
-                </div>
-                <div class="bar-group">
-                  <div class="bar bar--before" style="height:18%"></div>
-                  <div class="bar bar--after" style="height:62%"></div>
-                </div>
-                <div class="bar-group">
-                  <div class="bar bar--before" style="height:22%"></div>
-                  <div class="bar bar--after" style="height:70%"></div>
-                </div>
-                <div class="bar-group">
-                  <div class="bar bar--before" style="height:17%"></div>
-                  <div class="bar bar--after" style="height:80%"></div>
-                </div>
-                <div class="bar-group">
-                  <div class="bar bar--before" style="height:25%"></div>
-                  <div class="bar bar--after" style="height:95%"></div>
-                </div>
-              </div>
-              <div class="bar-labels">
-                <div class="bar-label">Jan</div>
-                <div class="bar-label">Feb</div>
-                <div class="bar-label">Mar</div>
-                <div class="bar-label">Apr</div>
-                <div class="bar-label">Máj</div>
-                <div class="bar-label">Jún</div>
-              </div>
-            </div>
+            <div id="chart1-body" style="flex:1;display:flex;flex-direction:column;min-height:0"></div>
           </div>
 
-          <!-- Area chart: Growth trend -->
-          <div class="chart-card">
+          <!-- Chart 2 -->
+          <div class="chart-card" id="chart-card-2">
             <div class="chart-card-header">
-              <span class="chart-title" style="font-size:14px">Rastový trend</span>
+              <span class="chart-title" id="chart2-title">Rastový trend</span>
               <div class="chart-growth">
                 <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"
                   style="width:14px;height:14px;color:#beec1b">
                   <path d="M2 10L6 6l3 3 4-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                     stroke-linejoin="round" />
                 </svg>
-                <span class="chart-growth-value" id="case-growth">+244%</span>
+                <span class="chart-growth-value" id="case-growth">+1058%</span>
               </div>
             </div>
-            <!-- SVG Area chart -->
-            <div style="flex:1;overflow:hidden">
-              <svg viewBox="0 0 545 167" preserveAspectRatio="none" style="width:100%;height:100%">
-                <defs>
-                  <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#beec1b" stop-opacity="0.3" />
-                    <stop offset="100%" stop-color="#beec1b" stop-opacity="0" />
-                  </linearGradient>
-                </defs>
-                <!-- Area fill -->
-                <path
-                  d="M0 160 C80 158 120 150 150 135 C200 115 240 100 290 80 C340 55 390 30 430 15 C460 5 500 3 545 2 L545 167 L0 167 Z"
-                  fill="url(#areaGrad)" />
-                <!-- Line -->
-                <path
-                  d="M0 160 C80 158 120 150 150 135 C200 115 240 100 290 80 C340 55 390 30 430 15 C460 5 500 3 545 2"
-                  fill="none" stroke="#beec1b" stroke-width="2" stroke-linecap="round" />
-              </svg>
-            </div>
-            <div class="bar-labels" style="border-top:none;padding-top:0">
-              <div class="bar-label">Feb</div>
-              <div class="bar-label">Mar</div>
-              <div class="bar-label">Apr</div>
-              <div class="bar-label">Máj</div>
-              <div class="bar-label">Jún</div>
-            </div>
+            <div id="chart2-body" style="flex:1;display:flex;flex-direction:column;min-height:0;overflow:hidden"></div>
           </div>
 
         </div><!-- /case-charts -->

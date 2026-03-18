@@ -1914,8 +1914,18 @@ background: #ffffffba;
   }
 
   .chart-card {
-    height: 220px;
+    height: auto;
+    padding: 16px;
   }
+
+  #chart1-body svg,
+  #chart2-body svg {
+    width: 100%;
+    height: auto;
+    flex: none;
+  }
+
+
 
   /* === CONTACT === */
   .contact {

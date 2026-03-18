@@ -83,12 +83,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const pts = values.map((v, i) => [toX(i), toY(v)]);
 
-    let linePath = `M${pts[0][0]},${pts[0][1]}`;
+    let linePath = `M0,${pts[0][1]} L${pts[0][0]},${pts[0][1]}`;
     for (let i = 1; i < pts.length; i++) {
       const cx = (pts[i-1][0] + pts[i][0]) / 2;
       linePath += ` C${cx},${pts[i-1][1]} ${cx},${pts[i][1]} ${pts[i][0]},${pts[i][1]}`;
     }
-    const areaPath = linePath + ` L${pts[pts.length-1][0]},${H} L${pts[0][0]},${H} Z`;
+    linePath += ` L${W},${pts[pts.length-1][1]}`;
+    const areaPath = linePath + ` L${W},${H} L0,${H} Z`;
 
     const dotsHtml = pts.map(([x, y], i) => {
       const num = values[i].toLocaleString('sk-SK');
@@ -312,6 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
       buildAreaChart(c1body, d.chart1.labels, d.chart1.values, d.chart1.unit);
       buildAreaChart(c2body, d.chart2.labels, d.chart2.values, d.chart2.unit);
     }
+
   }
 
   function updateCaseStudy(index) {

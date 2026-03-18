@@ -114,6 +114,8 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 img { display: block; max-width: 100%; }

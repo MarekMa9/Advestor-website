@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
           rx="3" fill="${color}" data-y="${y}" data-h="${barH}"
           style="transition:none"/>
         <text x="${x + barW/2}" y="${y - 6}" text-anchor="middle"
-          fill="${color}" font-size="10" font-weight="700" font-family="inherit"
+          fill="${color}" font-size="12" font-weight="700" font-family="inherit"
           opacity="0" class="svgbar-lbl">${formatted}</text>`;
     }).join('');
 
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }).join('');
 
     container.innerHTML = `
-      <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none"
+      <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet"
         style="width:100%;flex:1;overflow:visible;display:block;min-height:0">
         ${barsHtml}
       </svg>
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <circle class="area-dot" cx="${x}" cy="${y}" r="4" fill="#beec1b" stroke="#111" stroke-width="2"
           style="opacity:0;transition:opacity 0.3s ${0.6 + i*0.07}s"/>
         <text x="${x}" y="${y - 10}" text-anchor="middle" fill="#beec1b"
-          font-size="9" font-family="inherit" font-weight="700"
+          font-size="12" font-family="inherit" font-weight="700"
           style="opacity:0;transition:opacity 0.3s ${0.6 + i*0.07}s" class="area-val">${formatted}</text>`;
     }).join('');
 
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     container.innerHTML = `
       <div style="flex:1;min-height:0;overflow:hidden;position:relative">
-        <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" style="width:100%;height:100%;overflow:visible">
+        <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;overflow:visible">
           <defs>
             <linearGradient id="${uid}" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stop-color="#beec1b" stop-opacity="0.25"/>
@@ -141,13 +141,13 @@ document.addEventListener('DOMContentLoaded', () => {
   function buildDonutChart(container, roas) {
     const maxRoas = 500;
     const pct = Math.min(roas / maxRoas, 1);
-    const r = 70, cx = 100, cy = 95;
+    const r = 90, cx = 130, cy = 110;
     const arcLen = Math.PI * r; // half circle
     const dash = arcLen * pct;
 
     container.innerHTML = `
       <div style="flex:1;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px">
-        <svg viewBox="0 0 200 110" style="width:100%;max-width:220px;overflow:visible">
+        <svg viewBox="0 0 260 150" style="width:100%;max-width:320px;overflow:visible">
           <defs>
             <linearGradient id="donutGrad" x1="0" y1="0" x2="1" y2="0">
               <stop offset="0%" stop-color="#beec1b" stop-opacity="0.4"/>
@@ -170,11 +170,11 @@ document.addEventListener('DOMContentLoaded', () => {
           <circle r="7" fill="#beec1b" filter="url(#glowFilter)"
             style="opacity:0;transition:opacity 0.3s 1.2s" class="gauge-dot"/>
           <!-- label -->
-          <text x="${cx}" y="${cy - 10}" text-anchor="middle" fill="#beec1b"
+          <text x="${cx}" y="${cy - 18}" text-anchor="middle" fill="#beec1b"
             font-size="28" font-family="inherit" font-weight="900" class="gauge-num"
             style="opacity:0;transition:opacity 0.4s 0.8s">0%</text>
-          <text x="${cx}" y="${cy + 12}" text-anchor="middle" fill="#777"
-            font-size="11" font-family="inherit">rast vyplnení formulára</text>
+          <text x="${cx}" y="${cy + 2}" text-anchor="middle" fill="#777"
+            font-size="12" font-family="inherit">rast vyplnení formulára</text>
         </svg>
       </div>`;
 

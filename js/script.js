@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       tab: 'Kúria na Táľoch',
       client: 'Kúria na Táľoch',
+      slug: 'kuria-na-taloch',
       category: 'Horeca',
       desc: 'Spustili sme Google Ads a Google Display kampane zamerané na ľudí, ktorí aktívne vyhľadávajú pobyt na Táľoch a v Nízkych Tatrách.',
       result: '1058 % ROAS – každé 1 € investované do reklamy prinieslo viac ako 10 € v tržbách počas sezóny.',
@@ -36,8 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
       barsAfter:  [35, 50, 62, 70, 80, 95],
     },
     {
-      tab: 'Kerapro ',
-      client: 'Kerapro ',
+      tab: 'Kerapro',
+      client: 'Kerapro',
+      slug: 'kerapro',
       category: 'Rekonštrukcia kúpeľní',
       desc: 'Spustili sme Google Search kampane vo vyhľadávaní a zároveň optimalizovali komunikáciu na webe pre švajčiarsky trh. Cieľ bol jasný osloviť zákazníkov presne v momente, keď hľadajú obklady a služby obkladača.',
       result: '10× viac dopytov cez web - investícia do reklamy priniesla reálne zákazky a výsledky.',
@@ -50,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       tab: 'Digitálna televízia',
       client: 'Digitálna televízia',
+      slug: 'digitalna-televizia',
       category: 'Zábava',
       desc: 'Pomocou Google Search, Google Display a Facebook kampaní sme zamerali reklamu na získanie nových zákazníkov pre digitálnu televíziu. ',
       result: '3500 nových účtov a 5 násobný nárast mesačných opakovavých tržbieb.',
@@ -70,6 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateCaseStudy(index) {
     const d = caseData[index];
     document.getElementById('case-client').textContent = d.client;
+    const slugEl = document.getElementById('case-client-slug');
+    if (slugEl) slugEl.textContent = d.slug;
     document.getElementById('case-category').textContent = d.category;
     document.getElementById('case-desc').textContent = d.desc;
     document.getElementById('case-result-text').innerHTML = `<strong>Výsledok:</strong> <span>${d.result}</span>`;

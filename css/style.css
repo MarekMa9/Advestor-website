@@ -1064,7 +1064,6 @@ border-radius: 100px;
   display: flex;
   flex-direction: column;
   gap: 48px;
-  overflow: hidden;
 }
 
 .case-studies-glow {
@@ -1074,7 +1073,7 @@ border-radius: 100px;
   right: -200px;
   top: -250px;
   border-radius: 50%;
-  background: radial-gradient(circle at center, rgba(190,236,27,0.25) 0%, transparent 70%);
+  background: radial-gradient(circle at center, rgba(190,236,27,0.25) 0%, transparent 90%);
   filter: blur(120px);
   pointer-events: none;
   opacity: 0.2;

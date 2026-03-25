@@ -211,9 +211,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Case data with real CSV values ─────────────────────────────
   const caseData = [
     {
-      tab: 'Kúria na Táľoch',
-      client: 'Kúria na Táľoch',
-      slug: 'kuria-na-taloch',
+      tab: 'Ubytovanie v Tatrách',
+      client: 'Ubytovanie v Tatrách',
+      slug: 'ubytovanie-v-tatrách',
       category: 'Horeca',
       desc: 'Spustili sme Google Ads a Google Display kampane zamerané na ľudí, ktorí aktívne vyhľadávajú pobyt na Táľoch a v Nízkych Tatrách.',
       result: '1058 % ROAS – každé 1 € investované do reklamy prinieslo viac ako 10 € v tržbách počas sezóny.',

@@ -704,7 +704,7 @@ border-radius: 100px;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 32px;
+  padding: 32px 24px;
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -1752,14 +1752,14 @@ background: #ffffffba;
   }
 
   .hero-headline {
-    font-size: 36px;
+    font-size: 40px;
     letter-spacing: -1px;
     max-width: 100%;
     text-align: center
   }
 
   .hero-subtitle {
-    font-size: 15px;
+    font-size: 16px;
     max-width: 100%;
     text-align: center
   }
@@ -1999,4 +1999,314 @@ background: #ffffffba;
 
   .contact-success-title { font-size: 28px; }
   .contact-success-subtitle { font-size: 16px; }
+}
+
+/* --- Maintenance Page --- */
+.maintenance-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.maintenance-container {
+  text-align: center;
+  padding: 2rem;
+}
+
+.maintenance-logo {
+  width: min(480px, 80vw);
+  display: block;
+  margin: 0 auto;
+}
+
+.maintenance-message {
+  color: var(--dark-200);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-top: 2.5rem;
+}
+
+/* =============================================
+   App Development Page (vyvoj-aplikacii.html)
+   ============================================= */
+
+/* Process section */
+.app-process {
+  padding: 72px 20px;
+  max-width: var(--max-width);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+.app-process-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+.app-process-header p:not(.tagline) {
+  color: var(--dark-200);
+  max-width: 542px;
+}
+
+.process-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.process-step {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px 40px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.process-step:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-hover);
+}
+
+.process-step .step-number {
+  font-family: 'Loos Extended', var(--font-heading);
+  font-size: 80px;
+  font-weight: 900;
+  color: var(--white);
+  opacity: 0.08;
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: 100px;
+}
+
+.process-step-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.process-step h3 {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.224px;
+  color: var(--white);
+}
+
+.process-step p {
+  font-size: 14px;
+  color: var(--dark-100);
+  line-height: 1.5;
+}
+
+/* Tech stack section */
+.app-tech {
+  padding: 72px 20px;
+  max-width: var(--max-width);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 56px;
+}
+
+.app-tech-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+.app-tech-header p:not(.tagline) {
+  color: var(--dark-200);
+  max-width: 542px;
+}
+
+.tech-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tech-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 12px 24px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--white);
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.tech-pill:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+}
+
+.tech-pill .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary-500);
+}
+
+/* Comparison section */
+.app-comparison {
+  padding: 72px 20px;
+  max-width: var(--max-width);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+.app-comparison-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+.app-comparison-header p:not(.tagline) {
+  color: var(--dark-200);
+  max-width: 542px;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+}
+
+.comparison-table thead th {
+  background: var(--bg-card);
+  padding: 16px 24px;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.comparison-table thead th:first-child {
+  color: var(--dark-100);
+  width: 40%;
+}
+
+.comparison-table thead th:nth-child(2) {
+  color: var(--primary-500);
+  width: 30%;
+}
+
+.comparison-table thead th:nth-child(3) {
+  color: var(--dark-200);
+  width: 30%;
+}
+
+.comparison-table tbody td {
+  padding: 16px 24px;
+  font-size: 14px;
+  color: var(--dark-100);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  background: var(--bg);
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+.comparison-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.comparison-table tbody td:first-child {
+  font-weight: 600;
+  color: var(--white);
+}
+
+.td-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--primary-500-bg);
+  color: var(--primary-500);
+  margin-right: 10px;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+.cross {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  color: var(--dark-200);
+  margin-right: 10px;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+/* App Development Page – Mobile */
+@media (max-width: 768px) {
+  .process-step {
+    padding: 24px 16px;
+    gap: 24px;
+  }
+
+  .process-step .step-number {
+    font-size: 48px;
+    min-width: 64px;
+  }
+
+  .comparison-table thead th,
+  .comparison-table tbody td {
+    padding: 14px 16px;
+    font-size: 13px;
+  }
+
+  .app-process,
+  .app-tech,
+  .app-comparison {
+    padding: 48px 20px;
+    gap: 40px;
+  }
+
+  .app-process-header .h2,
+  .app-tech-header .h2,
+  .app-comparison-header .h2 {
+    font-size: 28px;
+    letter-spacing: -0.8px;
+  }
 }

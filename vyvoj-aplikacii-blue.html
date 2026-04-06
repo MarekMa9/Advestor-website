@@ -23,8 +23,11 @@
       --primary-500-border: rgba(59,130,246,0.2);
       --primary-500-dark: #0A0A08;
     }
-    .btn-primary { background: #3B82F6; }
+    .btn-primary { background: #3B82F6; color: #fff; }
     .btn-primary:hover { background: #60A5FA; }
+    .btn-primary svg path { stroke: #fff; }
+    .ticker-band--primary-500 .ticker-item { color: #fff; }
+    .ticker-band--primary-500 .ticker-sep { color: rgba(255,255,255,0.4); }
     .step-item--active {
       background: rgba(59,130,246,0.06);
       border-color: rgba(59,130,246,0.15);
@@ -32,6 +35,28 @@
     .hero-badge {
       background: rgba(59,130,246,0.08);
       border: 1px solid rgba(59,130,246,0.15);
+    }
+    .hero-glow-left {
+      background: radial-gradient(circle at center, rgba(59,130,246,0.25) 0%, rgba(30,65,123,0.1) 40%, transparent 70%);
+    }
+    .hero-glow-right {
+      background: radial-gradient(circle at center, rgba(59,130,246,0.2) 0%, transparent 70%);
+    }
+    .services-glow {
+      background: radial-gradient(circle at center, rgba(59,130,246,0.15) 0%, transparent 70%);
+    }
+    .app-comparison { position: relative;  }
+    .app-comparison-glow {
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      left: -250px;
+      top: -200px;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, rgba(59,130,246,0.15) 0%, transparent 70%);
+      filter: blur(100px);
+      pointer-events: none;
+      opacity: 0.25;
     }
   </style>
 </head>
@@ -49,7 +74,7 @@
   <nav class="nav">
     <div class="nav-inner">
       <a href="/domov" class="nav-logo">
-        <img src="images/Logo-advestor.svg" alt="Advestor logo" style="height:40px;width:auto;"
+        <img src="images/Logo-advestor-blue.svg" alt="Advestor logo" style="height:40px;width:auto;"
           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <span class="nav-logo-text" style="display:none">adve<span>stor</span></span>
       </a>
@@ -430,6 +455,7 @@
        COMPARISON
        ============================================================ -->
   <section class="app-comparison" id="porovnanie">
+    <div class="app-comparison-glow"></div>
     <div class="app-comparison-header">
       <p class="tagline">Prečo my</p>
       <h2 class="h2">Advestor vs. <span class="text-accent">bežná agentúra</span></h2>
@@ -702,7 +728,7 @@
   <footer class="footer" id="footer">
     <div class="footer-top">
       <a href="/domov" class="footer-logo">
-        <img src="images/Logo-advestor.svg" alt="Advestor logo"
+        <img src="images/Logo-advestor-blue.svg" alt="Advestor logo"
           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <span class="footer-logo-text" style="display:none">adve<span>stor</span></span>
       </a>

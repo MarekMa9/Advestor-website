@@ -1,5 +1,9 @@
 RewriteEngine On
 
+# Homepage = bývalá stránka vývoja aplikácií (modrá); staré adresy presmerovať na /
+RewriteCond %{THE_REQUEST} \s/(index|vyvoj-aplikacii-blue)(\.html)?[\s?] [NC]
+RewriteRule ^ / [R=301,L]
+
 # Remove .html extension
 # Redirect requests with .html to clean URL (except index.html)
 RewriteCond %{THE_REQUEST} \s/([^.]+)\.html[\s?] [NC]

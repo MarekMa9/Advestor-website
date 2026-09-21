@@ -23,6 +23,12 @@ $effort   = trim($_POST['effort']   ?? '');
 $website  = trim($_POST['website']  ?? '');
 $social   = trim($_POST['social']   ?? '');
 
+// Formulár „Vývoj aplikácií“
+$projectType = trim($_POST['projectType'] ?? '');
+$description = trim($_POST['description'] ?? '');
+$phase       = trim($_POST['phase']       ?? '');
+$budget      = trim($_POST['budget']      ?? '');
+
 if (!$name || !$email || !$phone || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     http_response_code(400);
     echo json_encode(['success' => false, 'message' => 'Vyplňte všetky povinné polia (meno, email, telefón).']);
@@ -75,7 +81,7 @@ function h(string $s): string {
 function agencyEmail(
     string $name, string $company, string $email, string $phone,
     string $industry, string $problem, string $revenue, string $effort,
-    string $website, string $social
+    string $website, string $social, array $extra = []
 ): string {
     $n  = h($name);   $co = h($company);
     $em = h($email);  $ph = h($phone);
@@ -142,6 +148,19 @@ function agencyEmail(
       </td></tr>";
     }
 
+    // Ďalšie polia (napr. formulár Vývoj aplikácií) – [nadpis => hodnota]
+    $extraBlocks = '';
+    foreach ($extra as $label => $value) {
+        if ($value === '') continue;
+        $extraBlocks .= "
+      <tr><td style='padding:0 0 12px;'>
+        <div style='background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px 20px;'>
+          <p style='margin:0 0 8px;font-size:11px;font-weight:600;letter-spacing:1.2px;color:#888888;text-transform:uppercase;font-family:Arial,sans-serif;'>" . h($label) . "</p>
+          <p style='margin:0;font-size:15px;color:#F5F5F5;line-height:1.7;font-family:Arial,sans-serif;'>" . nl2br(h($value)) . "</p>
+        </div>
+      </td></tr>";
+    }
+
     return <<<HTML
 <!DOCTYPE html>
 <html lang="sk">
@@ -192,6 +211,7 @@ function agencyEmail(
       $revenueBlock
       $effortBlock
       $webSocialBlock
+      $extraBlocks
 
     </table>
   </td></tr>
@@ -292,6 +312,17 @@ HTML;
 /* ── Send both e-mails ────────────────────────────────────────────── */
 $errors = [];
 
+$appFields = [
+    'Typ projektu'        => $projectType,
+    'Popis projektu'      => $description,
+    'Fáza projektu'       => $phase,
+    'Orientačný rozpočet' => $budget,
+];
+$appAltBody = '';
+foreach ($appFields as $label => $value) {
+    if ($value !== '') $appAltBody .= "\n$label: $value";
+}
+
 // Email 1 – Agency notification
 try {
     $m = makeMailer();
@@ -299,8 +330,8 @@ try {
     $m->addAddress('martin@advestor.sk', 'Martin');
     $m->isHTML(true);
     $m->Subject = 'Nový dopyt z webu – ' . $name . ($company ? " ($company)" : '');
-    $m->Body    = agencyEmail($name, $company, $email, $phone, $industryLabel, $problem, $revenueLabel, $effortLabel, $website, $social);
-    $m->AltBody = "Nový dopyt\nMeno: $name\nEmail: $email\nTel: $phone" . ($website ? "\nWeb: $website" : '') . ($social ? "\nSociálne: $social" : '');
+    $m->Body    = agencyEmail($name, $company, $email, $phone, $industryLabel, $problem, $revenueLabel, $effortLabel, $website, $social, $appFields);
+    $m->AltBody = "Nový dopyt\nMeno: $name\nEmail: $email\nTel: $phone" . ($website ? "\nWeb: $website" : '') . ($social ? "\nSociálne: $social" : '') . $appAltBody;
     $m->send();
 } catch (Exception $e) {
     $errors[] = 'agency';

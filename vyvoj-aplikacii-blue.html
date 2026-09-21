@@ -616,9 +616,11 @@
         <!-- Step 1: Popis projektu -->
         <div class="form-step-panel" style="display:none;flex-direction:column;gap:40px;flex:1">
           <div class="form-fields">
-            <p style="font-size:16px;color:var(--dark-100)">Stručne popíšte, čo potrebujete</p>
-            <textarea class="form-input" id="app-desc" name="description" form="app-contact-form" rows="5" placeholder="Popíšte nám v pár vetách váš projekt, problém alebo cieľ..." style="resize:vertical"></textarea>
-            <p id="err-1" style="display:none;color:#ff6b6b;font-size:13px;margin:0">Prosím, popíšte váš projekt.</p>
+            <div id="desc-questions" style="display:flex;flex-direction:column;gap:32px"></div>
+            <input type="hidden" name="description" id="description-input" form="app-contact-form">
+            <p id="desc-other-label" style="display:none;font-size:16px;color:var(--dark-100)">Stručne popíšte, čo potrebujete</p>
+            <textarea class="form-input" id="app-desc" rows="5" placeholder="Popíšte nám v pár vetách váš projekt, problém alebo cieľ..." style="resize:vertical;display:none"></textarea>
+            <p id="err-1" style="display:none;color:#ff6b6b;font-size:13px;margin:0">Prosím, odpovedzte na otázky a doplňte popis.</p>
           </div>
           <div class="form-actions">
             <button class="btn-ghost" id="form-prev-1" type="button">Späť</button>
@@ -894,16 +896,117 @@
         return !!document.querySelector('[data-option-group="' + group + '"] .form-option--active');
       }
 
+      // ── Step 1: otázky podľa typu projektu ──
+      const DESC_QUESTIONS = {
+        'Mobilná aplikácia': [
+          { q: 'Na čo bude aplikácia slúžiť?', multi: false, opts: ['Zákaznícka appka pre moju firmu', 'Interná appka pre zamestnancov', 'Objednávky / e-shop', 'Rezervácie a booking', 'Komunita / sociálna appka', 'Iné'] },
+        ],
+        'Webová aplikácia / SaaS': [
+          { q: 'Čo chcete postaviť?', multi: false, opts: ['Interný nástroj pre tím', 'Klientsky portál', 'SaaS produkt na predaj', 'Marketplace / platforma', 'Dashboard a reporting', 'Iné'] },
+        ],
+        'AI Chatbot / Asistent': [
+          { q: 'Kde má asistent fungovať?', multi: true, opts: ['Na webe', 'WhatsApp / Messenger', 'Interne pre zamestnancov', 'Email', 'Telefón (hlasový asistent)'] },
+        ],
+        'AI Automatizácia': [
+          { q: 'Čo chcete automatizovať?', multi: true, opts: ['Spracovanie emailov', 'Faktúry a dokumenty', 'Tvorba cenových ponúk', 'Zákaznícka podpora', 'Reporting a dáta', 'Prepisovanie dát medzi systémami', 'Tvorba obsahu', 'Iné'] },
+          { q: 'Koľko času vám to dnes zaberá?', multi: false, opts: ['Pár hodín týždenne', '1-2 dni týždenne', 'Jeden človek na plný úväzok', 'Viac ľudí na plný úväzok'] },
+        ],
+        'Iné / Neviem presne': [
+          { q: 'Čo vás najviac trápi?', multi: true, opts: ['Veľa manuálnej práce', 'Strácame leady alebo zákazníkov', 'Chaos v dátach a tabuľkách', 'Pomalá zákaznícka podpora', 'Chcem nový digitálny produkt', 'Iné'] },
+        ],
+      };
+
+      const descWrap  = document.getElementById('desc-questions');
+      const descOther = document.getElementById('app-desc');
+      const descOtherLabel = document.getElementById('desc-other-label');
+      let renderedType = null;
+
+      function renderDescQuestions() {
+        const type = document.getElementById('projectType-input').value;
+        if (type === renderedType) return;
+        renderedType = type;
+        maxUnlocked = 0; // zmena typu = odpovede v kroku 2 treba vyplniť znova
+        descWrap.innerHTML = '';
+        descOther.value = '';
+
+        (DESC_QUESTIONS[type] || []).forEach(item => {
+          const block = document.createElement('div');
+          block.className = 'form-fields';
+          block.dataset.descQ = item.q;
+
+          const label = document.createElement('p');
+          label.style.cssText = 'font-size:16px;color:var(--dark-100)';
+          label.textContent = item.q + (item.multi ? ' (môžete vybrať viac)' : '');
+          block.appendChild(label);
+
+          const grid = document.createElement('div');
+          grid.className = 'form-option-grid';
+          item.opts.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'form-option';
+            btn.dataset.value = opt;
+            btn.textContent = opt;
+            btn.setAttribute('aria-pressed', 'false');
+            btn.addEventListener('click', () => {
+              if (item.multi) {
+                btn.classList.toggle('form-option--active');
+              } else {
+                grid.querySelectorAll('.form-option').forEach(b => {
+                  b.classList.remove('form-option--active');
+                  b.setAttribute('aria-pressed', 'false');
+                });
+                btn.classList.add('form-option--active');
+              }
+              btn.setAttribute('aria-pressed', btn.classList.contains('form-option--active') ? 'true' : 'false');
+              updateDescOther();
+            });
+            grid.appendChild(btn);
+          });
+          block.appendChild(grid);
+          descWrap.appendChild(block);
+        });
+
+        updateDescOther();
+      }
+
+      // Textarea len pri "Iné" (alebo ak typ nemá definované otázky)
+      function updateDescOther() {
+        const hasQuestions = !!descWrap.children.length;
+        const show = !hasQuestions || !!descWrap.querySelector('.form-option--active[data-value="Iné"]');
+        descOther.style.display = show ? '' : 'none';
+        descOtherLabel.style.display = show ? '' : 'none';
+        descOtherLabel.textContent = hasQuestions ? 'Upresnite, prosím, čo máte na mysli' : 'Stručne popíšte, čo potrebujete';
+        if (!show) descOther.value = '';
+      }
+
+      function descValid() {
+        const unanswered = [...descWrap.children].some(b => !b.querySelector('.form-option--active'));
+        const needsText = descOther.style.display !== 'none' && !descOther.value.trim();
+        return !unanswered && !needsText;
+      }
+
+      function composeDescription() {
+        const lines = [...descWrap.children].map(b =>
+          b.dataset.descQ + ' ' + [...b.querySelectorAll('.form-option--active')].map(o => o.dataset.value).join(', ')
+        );
+        const text = descOther.style.display !== 'none' ? descOther.value.trim() : '';
+        if (text) lines.push(lines.length ? 'Upresnenie: ' + text : text);
+        document.getElementById('description-input').value = lines.join('\n');
+      }
+
       // Step 0 -> 1: Typ projektu -> Popis
       document.getElementById('form-next')?.addEventListener('click', () => {
         if (!hasSelection('projectType')) { showErr('err-0'); return; }
+        renderDescQuestions();
         showPanel(1, true);
       });
 
       // Step 1 -> 2: Popis -> Fáza & Rozpočet
       document.getElementById('form-prev-1')?.addEventListener('click', () => showPanel(0));
       document.getElementById('form-next-1')?.addEventListener('click', () => {
-        if (!document.getElementById('app-desc').value.trim()) { showErr('err-1'); return; }
+        if (!descValid()) { showErr('err-1'); return; }
+        composeDescription();
         showPanel(2, true);
       });
 
@@ -929,6 +1032,7 @@
         const email = document.getElementById('app-email').value.trim();
         const phone = document.getElementById('app-phone').value.trim();
         if (!name || !email.includes('@') || phone.length < 6) { showErr('err-3'); return; }
+        composeDescription();
 
         const btn = document.getElementById('form-submit-btn');
         const originalHTML = btn.innerHTML;

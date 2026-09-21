@@ -668,8 +668,8 @@
               <input class="form-input" type="text" id="app-name" name="name" form="app-contact-form" placeholder="Ján Novák" required>
             </div>
             <div class="form-field">
-              <label class="form-label" for="app-company">Firma</label>
-              <input class="form-input" type="text" id="app-company" name="company" form="app-contact-form" placeholder="Názov firmy (nepovinné)">
+              <label class="form-label" for="app-company">Názov firmy *</label>
+              <input class="form-input" type="text" id="app-company" name="company" form="app-contact-form" placeholder="Vaša spoločnosť s.r.o." required>
             </div>
             <div class="form-field">
               <label class="form-label" for="app-email">Email *</label>
@@ -679,7 +679,7 @@
               <label class="form-label" for="app-phone">Tel. číslo *</label>
               <input class="form-input" type="tel" id="app-phone" name="phone" form="app-contact-form" placeholder="+421 9XX XXX XXX" required>
             </div>
-            <p id="err-3" style="display:none;color:#ff6b6b;font-size:13px;margin:0">Prosím, vyplňte meno, email a telefón.</p>
+            <p id="err-3" style="display:none;color:#ff6b6b;font-size:13px;margin:0">Prosím, vyplňte meno, názov firmy, email a telefón.</p>
           </div>
           <div class="form-actions">
             <button class="btn-ghost" id="form-prev-3" type="button">Späť</button>
@@ -1024,7 +1024,8 @@
         const name = document.getElementById('app-name').value.trim();
         const email = document.getElementById('app-email').value.trim();
         const phone = document.getElementById('app-phone').value.trim();
-        if (!name || !email.includes('@') || phone.length < 6) { showErr('err-3'); return; }
+        const company = document.getElementById('app-company').value.trim();
+        if (!name || !company || !email.includes('@') || phone.length < 6) { showErr('err-3'); return; }
         composeDescription();
 
         const btn = document.getElementById('form-submit-btn');

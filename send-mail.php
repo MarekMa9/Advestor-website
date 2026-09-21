@@ -30,7 +30,6 @@ $social   = trim($_POST['social']   ?? '');
 $projectType = trim($_POST['projectType'] ?? '');
 $description = trim($_POST['description'] ?? '');
 $phase       = trim($_POST['phase']       ?? '');
-$budget      = trim($_POST['budget']      ?? '');
 
 if (!$name || !$email || !$phone || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     http_response_code(400);
@@ -157,29 +156,19 @@ function agencyEmail(
         $label = "font-size:11px;font-weight:600;letter-spacing:1.2px;color:#888888;text-transform:uppercase;font-family:Arial,sans-serif;";
         $eur = fn(int $v) => ($v < 0 ? '−' : '') . number_format(abs($v), 0, ',', '&nbsp;') . '&nbsp;€';
         $value = "font-size:16px;color:#FFFFFF;font-family:Arial,sans-serif;";
-        $revenueHtml = $ruz
+        $finstat = 'https://www.finstat.sk/' . rawurlencode($ico);
+        $title = ($ruz ? 'Hospodárenie ' . h($ruz['year']) : 'Hospodárenie za minulý rok') . ' &nbsp;·&nbsp; IČO ' . h($ico);
+        $figures = $ruz
             ? "<p style='margin:0;$value'>Obrat: <strong>" . $eur($ruz['revenue']) . "</strong></p>"
               . "<p style='margin:4px 0 0;$value'>" . ($ruz['profit'] < 0 ? 'Strata' : 'Zisk') . ": <strong style='color:" . ($ruz['profit'] < 0 ? '#FF6B6B' : '#FFFFFF') . ";'>" . $eur($ruz['profit']) . "</strong></p>"
-              . "<p style='margin:6px 0 0;font-size:12px;color:#666666;font-family:Arial,sans-serif;'>obdobie " . h($ruz['period']) . "</p>"
             : "<p style='margin:0;font-size:14px;color:#888888;font-family:Arial,sans-serif;'>nezistené – závierka nie je v RÚZ v štruktúrovanej podobe</p>";
-        $revenueTitle = $ruz ? 'Hospodárenie ' . h($ruz['year']) : 'Hospodárenie za minulý rok';
-        $finstat = 'https://www.finstat.sk/' . rawurlencode($ico);
         $registryBlock = "
       <tr><td style='padding:0 0 12px;'>
-        <table width='100%' cellpadding='0' cellspacing='0'><tr>
-          <td width='50%' valign='top' style='padding-right:6px;'>
-            <div style='background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px 20px;'>
-              <p style='margin:0 0 4px;$label'>$revenueTitle</p>
-              $revenueHtml
-            </div>
-          </td>
-          <td width='50%' valign='top' style='padding-left:6px;'>
-            <div style='background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px 20px;'>
-              <p style='margin:0 0 4px;$label'>IČO " . h($ico) . "</p>
-              <a href='$finstat' style='color:#BEEC1B;text-decoration:none;font-size:14px;font-family:Arial,sans-serif;'>Zobraziť na FinStat →</a>
-            </div>
-          </td>
-        </tr></table>
+        <div style='background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px 20px;'>
+          <p style='margin:0 0 8px;$label'>$title</p>
+          $figures
+          <p style='margin:10px 0 0;'><a href='$finstat' style='color:#BEEC1B;text-decoration:none;font-size:14px;font-family:Arial,sans-serif;'>Zobraziť na FinStat →</a></p>
+        </div>
       </td></tr>";
     }
 
@@ -352,7 +341,6 @@ $appFields = [
     'Typ projektu'        => $projectType,
     'Popis projektu'      => $description,
     'Fáza projektu'       => $phase,
-    'Orientačný rozpočet' => $budget,
 ];
 $appAltBody = '';
 foreach ($appFields as $label => $value) {

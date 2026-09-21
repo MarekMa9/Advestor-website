@@ -546,7 +546,7 @@
         <div class="step-item step-item--inactive">
           <div class="step-item-left">
             <span class="step-num">03</span>
-            <span class="step-label">Fáza & Rozpočet</span>
+            <span class="step-label">Fáza projektu</span>
           </div>
           <svg class="step-chevron" viewBox="0 0 16 16" fill="none">
             <path d="M6 12l4-4-4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
@@ -634,7 +634,7 @@
           </div>
         </div>
 
-        <!-- Step 2: Fáza & Rozpočet -->
+        <!-- Step 2: Fáza projektu -->
         <div class="form-step-panel" style="display:none;flex-direction:column;gap:40px;flex:1">
           <div class="form-fields">
             <p style="font-size:16px;color:var(--dark-100)">Kde sa práve nachádzate?</p>
@@ -645,16 +645,6 @@
               <button class="form-option" type="button" data-value="Existujúci produkt">Mám existujúci produkt – potrebujem vylepšenie alebo rozšírenie</button>
             </div>
             <p id="err-2-phase" style="display:none;color:#ff6b6b;font-size:13px;margin:0">Prosím, vyberte fázu projektu.</p>
-
-            <p style="font-size:14px;color:var(--dark-100);margin-top:16px;font-weight:500;letter-spacing:0.5px;text-transform:uppercase">Orientačný rozpočet</p>
-            <input type="hidden" name="budget" id="budget-input" form="app-contact-form">
-            <div class="form-option-grid" data-option-group="budget">
-              <button class="form-option" type="button" data-value="Do 5 000 €">Do 5 000 €</button>
-              <button class="form-option" type="button" data-value="5 000 – 15 000 €">5 000 – 15 000 €</button>
-              <button class="form-option" type="button" data-value="15 000 – 50 000 €">15 000 – 50 000 €</button>
-              <button class="form-option" type="button" data-value="50 000+ €">50 000+ €</button>
-            </div>
-            <p id="err-2-budget" style="display:none;color:#ff6b6b;font-size:13px;margin:0">Prosím, vyberte orientačný rozpočet.</p>
           </div>
           <div class="form-actions">
             <button class="btn-ghost" id="form-prev-2" type="button">Späť</button>
@@ -1002,7 +992,7 @@
         showPanel(1, true);
       });
 
-      // Step 1 -> 2: Popis -> Fáza & Rozpočet
+      // Step 1 -> 2: Popis -> Fáza projektu
       document.getElementById('form-prev-1')?.addEventListener('click', () => showPanel(0));
       document.getElementById('form-next-1')?.addEventListener('click', () => {
         if (!descValid()) { showErr('err-1'); return; }
@@ -1010,11 +1000,10 @@
         showPanel(2, true);
       });
 
-      // Step 2 -> 3: Fáza & Rozpočet -> Kontakt
+      // Step 2 -> 3: Fáza projektu -> Kontakt
       document.getElementById('form-prev-2')?.addEventListener('click', () => showPanel(1));
       document.getElementById('form-next-2')?.addEventListener('click', () => {
         if (!hasSelection('phase')) { showErr('err-2-phase'); return; }
-        if (!hasSelection('budget')) { showErr('err-2-budget'); return; }
         showPanel(3, true);
       });
 
@@ -1068,7 +1057,6 @@
               },
               lead_projectType: formData.get('projectType') || undefined,
               lead_phase:       formData.get('phase')       || undefined,
-              lead_budget:      formData.get('budget')      || undefined,
               lead_company:     formData.get('company')     || undefined,
             });
           } else {

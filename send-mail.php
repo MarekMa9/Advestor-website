@@ -271,10 +271,17 @@ function clientEmail(string $name): string {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Ďakujeme za záujem – Advestor.sk</title>
+<style>
+  @media (max-width: 600px) {
+    .card { padding: 32px 20px !important; }
+    .outer { padding: 20px 8px !important; }
+    .box { padding: 16px 20px !important; }
+  }
+</style>
 </head>
 <body style="margin:0;padding:0;background:#0A0A0A;">
 <table width="100%" cellpadding="0" cellspacing="0" style="background:#0A0A0A;">
-<tr><td align="center" style="padding:40px 20px;">
+<tr><td class="outer" align="center" style="padding:40px 20px;">
 <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
 
   <!-- Logo -->
@@ -283,7 +290,7 @@ function clientEmail(string $name): string {
   </td></tr>
 
   <!-- Card -->
-  <tr><td style="background:#141414;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:48px 40px;text-align:center;">
+  <tr><td class="card" style="background:#141414;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:48px 40px;text-align:center;">
     <table width="100%" cellpadding="0" cellspacing="0">
 
       <!-- Checkmark icon -->
@@ -320,7 +327,7 @@ function clientEmail(string $name): string {
   <!-- Contact box -->
   <tr><td style="padding:12px 0 0;">
     <table cellpadding="0" cellspacing="0" style="width:100%;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
-    <tr><td style="padding:20px 24px;">
+    <tr><td class="box" style="padding:20px 24px;">
       <p style="margin:0 0 4px;font-size:12px;color:#666666;font-family:Arial,sans-serif;">Máte otázky? Napíšte nám priamo:</p>
       <a href="mailto:info@advestor.sk" style="color:#BEEC1B;text-decoration:none;font-size:15px;font-weight:600;font-family:Arial,sans-serif;">info@advestor.sk</a>
     </td></tr>

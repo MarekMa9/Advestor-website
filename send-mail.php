@@ -95,32 +95,32 @@ function agencyEmail(
         : '';
 
     $industryBlock = $ind ? "
-      <tr><td style='padding:0 0 12px;'>
-        <div style='background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px 20px;'>
+      <tr><td style='padding:0 0 24px;'>
+        <div>
           <p style='margin:0 0 4px;font-size:11px;font-weight:600;letter-spacing:1.2px;color:#888888;text-transform:uppercase;font-family:Arial,sans-serif;'>Odvetvie</p>
           <p style='margin:0;font-size:16px;color:#F5F5F5;font-family:Arial,sans-serif;'>$ind</p>
         </div>
       </td></tr>" : '';
 
     $problemBlock = $problem ? "
-      <tr><td style='padding:0 0 12px;'>
-        <div style='background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px 20px;'>
+      <tr><td style='padding:0 0 24px;'>
+        <div>
           <p style='margin:0 0 8px;font-size:11px;font-weight:600;letter-spacing:1.2px;color:#888888;text-transform:uppercase;font-family:Arial,sans-serif;'>Marketingový problém / cieľ</p>
           <p style='margin:0;font-size:15px;color:#F5F5F5;line-height:1.7;font-family:Arial,sans-serif;'>" . nl2br(h($problem)) . "</p>
         </div>
       </td></tr>" : '';
 
     $revenueBlock = $rev ? "
-      <tr><td style='padding:0 0 12px;'>
-        <div style='background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px 20px;'>
+      <tr><td style='padding:0 0 24px;'>
+        <div>
           <p style='margin:0 0 4px;font-size:11px;font-weight:600;letter-spacing:1.2px;color:#888888;text-transform:uppercase;font-family:Arial,sans-serif;'>Mesačný obrat</p>
           <p style='margin:0;font-size:16px;;color:#FFFFFF;font-family:Arial,sans-serif;'>$rev</p>
         </div>
       </td></tr>" : '';
 
     $effortBlock = $eff ? "
-      <tr><td style='padding:0 0 12px;'>
-        <div style='background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px 20px;'>
+      <tr><td style='padding:0 0 24px;'>
+        <div>
           <p style='margin:0 0 4px;font-size:11px;font-weight:600;letter-spacing:1.2px;color:#888888;text-transform:uppercase;font-family:Arial,sans-serif;'>Partnerstvo</p>
           <p style='margin:0;font-size:15px;color:#F5F5F5;line-height:1.6;font-family:Arial,sans-serif;'>$eff</p>
         </div>
@@ -130,7 +130,7 @@ function agencyEmail(
     if ($web || $soc) {
         $webCell = $web ? "
           <td width='50%' style='padding-right:6px;'>
-            <div style='background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px 20px;'>
+            <div>
               <p style='margin:0 0 4px;font-size:11px;font-weight:600;letter-spacing:1.2px;color:#888888;text-transform:uppercase;font-family:Arial,sans-serif;'>Web</p>
               <a href='$web' style='color:#BEEC1B;text-decoration:none;font-size:14px;font-family:Arial,sans-serif;'>$web</a>
             </div>
@@ -138,14 +138,14 @@ function agencyEmail(
 
         $socCell = $soc ? "
           <td width='50%' style='padding-left:6px;'>
-            <div style='background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px 20px;'>
+            <div>
               <p style='margin:0 0 4px;font-size:11px;font-weight:600;letter-spacing:1.2px;color:#888888;text-transform:uppercase;font-family:Arial,sans-serif;'>Sociálne siete</p>
               <p style='margin:0;font-size:14px;color:#F5F5F5;font-family:Arial,sans-serif;'>$soc</p>
             </div>
           </td>" : '<td width="50%"></td>';
 
         $webSocialBlock = "
-      <tr><td style='padding:0 0 12px;'>
+      <tr><td style='padding:0 0 24px;'>
         <table width='100%' cellpadding='0' cellspacing='0'><tr>$webCell$socCell</tr></table>
       </td></tr>";
     }
@@ -163,8 +163,8 @@ function agencyEmail(
               . "<p style='margin:4px 0 0;$value'>" . ($ruz['profit'] < 0 ? 'Strata' : 'Zisk') . ": <strong style='color:" . ($ruz['profit'] < 0 ? '#FF6B6B' : '#FFFFFF') . ";'>" . $eur($ruz['profit']) . "</strong></p>"
             : "<p style='margin:0;font-size:14px;color:#888888;font-family:Arial,sans-serif;'>nezistené – závierka nie je v RÚZ v štruktúrovanej podobe</p>";
         $registryBlock = "
-      <tr><td style='padding:0 0 12px;'>
-        <div style='background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px 20px;'>
+      <tr><td style='padding:0 0 24px;'>
+        <div>
           <p style='margin:0 0 8px;$label'>$title</p>
           $figures
           <p style='margin:10px 0 0;'><a href='$finstat' style='color:#BEEC1B;text-decoration:none;font-size:14px;font-family:Arial,sans-serif;'>Zobraziť na FinStat →</a></p>
@@ -177,8 +177,8 @@ function agencyEmail(
     foreach ($extra as $label => $value) {
         if ($value === '') continue;
         $extraBlocks .= "
-      <tr><td style='padding:0 0 12px;'>
-        <div style='background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px 20px;'>
+      <tr><td style='padding:0 0 24px;'>
+        <div>
           <p style='margin:0 0 8px;font-size:11px;font-weight:600;letter-spacing:1.2px;color:#888888;text-transform:uppercase;font-family:Arial,sans-serif;'>" . h($label) . "</p>
           <p style='margin:0;font-size:15px;color:#F5F5F5;line-height:1.7;font-family:Arial,sans-serif;'>" . nl2br(h($value)) . "</p>
         </div>
@@ -192,10 +192,16 @@ function agencyEmail(
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Nový dopyt z webu</title>
+<style>
+  @media (max-width: 600px) {
+    .card { padding: 24px 20px !important; }
+    .outer { padding: 20px 8px !important; }
+  }
+</style>
 </head>
 <body style="margin:0;padding:0;background:#0A0A0A;">
 <table width="100%" cellpadding="0" cellspacing="0" style="background:#0A0A0A;">
-<tr><td align="center" style="padding:40px 20px;">
+<tr><td class="outer" align="center" style="padding:40px 20px;">
 <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
 
   <!-- Logo -->
@@ -204,7 +210,7 @@ function agencyEmail(
   </td></tr>
 
   <!-- Card -->
-  <tr><td style="background:#141414;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:40px;">
+  <tr><td class="card" style="background:#141414;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:40px;">
     <table width="100%" cellpadding="0" cellspacing="0">
 
       <tr><td style="padding:0 0 4px;">
@@ -217,9 +223,9 @@ function agencyEmail(
       <tr><td style="padding:0 0 24px;"><hr style="border:none;border-top:1px solid rgba(255,255,255,0.08);margin:0;"></td></tr>
 
       <!-- Contact badge -->
-      <tr><td style="padding:0 0 12px;">
-        <table cellpadding="0" cellspacing="0" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:12px;width:100%;">
-        <tr><td style="padding:20px 24px;">
+      <tr><td style="padding:0 0 24px;">
+        <table cellpadding="0" cellspacing="0" style="width:100%;">
+        <tr><td>
           <p style="margin:0;font-size:20px;font-weight:700;color:#FFFFFF;font-family:Arial,sans-serif;">$n$companyLine</p>
           <p style="margin:8px 0 0;">
             <a href="mailto:$em" style="color:#BEEC1B;text-decoration:none;font-size:14px;font-family:Arial,sans-serif;">$em</a>

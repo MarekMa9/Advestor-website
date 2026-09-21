@@ -1529,6 +1529,46 @@ max-width: 640px; }
 .form-input::placeholder { color: rgba(240,240,240,0.5); }
 .form-input:focus { border-color: rgba(190,236,27,0.4); background: rgba(255,255,255,0.05); }
 
+/* Súhlas s ochranou osobných údajov */
+.form-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--dark-100);
+  cursor: pointer;
+}
+.form-consent input {
+  appearance: none;
+  -webkit-appearance: none;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  border: 1px solid var(--border-hover);
+  border-radius: 6px;
+  background: rgba(255,255,255,0.03);
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.form-consent input::after {
+  content: '';
+  width: 5px;
+  height: 10px;
+  margin-top: -2px;
+  border: solid var(--consent-check, #0a0a0a);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg) scale(0);
+  transition: transform 0.15s;
+}
+.form-consent input:checked { background: var(--primary-500); border-color: var(--primary-500); }
+.form-consent input:checked::after { transform: rotate(45deg) scale(1); }
+.form-consent input:focus-visible { outline: 2px solid var(--primary-500); outline-offset: 2px; }
+.form-consent a { color: var(--white); text-decoration: underline; text-underline-offset: 3px; }
+
 .form-option-grid {
   display: flex;
   flex-wrap: wrap;
@@ -1969,6 +2009,10 @@ background: #ffffffba;
     line-height: 120%;
   }
 
+  .form-option {
+    padding: 12px 12px;
+  }
+
   /* === FOOTER === */
   .footer-top {
     flex-direction: column;
@@ -2292,8 +2336,8 @@ background: #ffffffba;
 
   .comparison-table thead th,
   .comparison-table tbody td {
-    padding: 14px 16px;
-    font-size: 13px;
+    padding: 14px 12px;
+    font-size: 12px;
   }
 
   .app-process,

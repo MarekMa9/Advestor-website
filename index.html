@@ -32,6 +32,7 @@
       background: rgba(59,130,246,0.06);
       border-color: rgba(59,130,246,0.15);
     }
+    :root { --consent-check: #fff; }
     .form-input:focus { border-color: rgba(59,130,246,0.4); }
     .hero-badge {
       background: rgba(59,130,246,0.08);
@@ -679,7 +680,12 @@
               <label class="form-label" for="app-phone">Tel. číslo *</label>
               <input class="form-input" type="tel" id="app-phone" name="phone" form="app-contact-form" placeholder="+421 9XX XXX XXX" required>
             </div>
+            <label class="form-consent">
+              <input type="checkbox" id="app-consent" name="consent" value="1" form="app-contact-form" required>
+              <span>Súhlasím so <a href="/ochrana-osobnych-udajov" target="_blank">zásadami ochrany osobných údajov</a> *</span>
+            </label>
             <p id="err-3" style="display:none;color:#ff6b6b;font-size:13px;margin:0">Prosím, vyplňte meno, názov firmy, email a telefón.</p>
+            <p id="err-consent" style="display:none;color:#ff6b6b;font-size:13px;margin:0">Prosím, potvrďte súhlas so zásadami ochrany osobných údajov.</p>
           </div>
           <div class="form-actions">
             <button class="btn-ghost" id="form-prev-3" type="button">Späť</button>
@@ -741,7 +747,7 @@
 
     <div class="footer-bottom">
       <p>&copy; 2026 Advestor GROUP s.r.o.. ALL RIGHTS RESERVED.</p>
-      <a href="#">Ochrana osobných údajov</a>
+      <a href="/ochrana-osobnych-udajov">Ochrana osobných údajov</a>
     </div>
   </footer>
 
@@ -1026,6 +1032,7 @@
         const phone = document.getElementById('app-phone').value.trim();
         const company = document.getElementById('app-company').value.trim();
         if (!name || !company || !email.includes('@') || phone.length < 6) { showErr('err-3'); return; }
+        if (!document.getElementById('app-consent').checked) { showErr('err-consent'); return; }
         composeDescription();
 
         const btn = document.getElementById('form-submit-btn');

@@ -1,5 +1,7 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/config.php';
+require __DIR__ . '/ruz.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -14,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 $name     = trim($_POST['name']     ?? '');
 $company  = trim($_POST['company']  ?? '');
+$ico      = preg_replace('/\D/', '', $_POST['ico'] ?? '');
 $email    = trim($_POST['email']    ?? '');
 $phone    = trim($_POST['phone']    ?? '');
 $industry = trim($_POST['industry'] ?? '');
@@ -64,7 +67,7 @@ function makeMailer(): PHPMailer {
     $m->Host       = 'smtp.gmail.com';
     $m->SMTPAuth   = true;
     $m->Username   = 'marek@advestor.sk';
-    $m->Password   = 'cywc yrfj qxir fncm';
+    $m->Password   = advestorConfig()['smtp_password'] ?? '';
     $m->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $m->Port       = 587;
     $m->CharSet    = 'UTF-8';
@@ -81,7 +84,7 @@ function h(string $s): string {
 function agencyEmail(
     string $name, string $company, string $email, string $phone,
     string $industry, string $problem, string $revenue, string $effort,
-    string $website, string $social, array $extra = []
+    string $website, string $social, array $extra = [], string $ico = '', ?array $ruz = null
 ): string {
     $n  = h($name);   $co = h($company);
     $em = h($email);  $ph = h($phone);
@@ -148,6 +151,38 @@ function agencyEmail(
       </td></tr>";
     }
 
+    // Firma z registra – IČO z našepkávača, obrat a zisk z RÚZ, odkaz na FinStat (len pre nás)
+    $registryBlock = '';
+    if ($ico !== '') {
+        $label = "font-size:11px;font-weight:600;letter-spacing:1.2px;color:#888888;text-transform:uppercase;font-family:Arial,sans-serif;";
+        $eur = fn(int $v) => ($v < 0 ? '−' : '') . number_format(abs($v), 0, ',', '&nbsp;') . '&nbsp;€';
+        $value = "font-size:16px;color:#FFFFFF;font-family:Arial,sans-serif;";
+        $revenueHtml = $ruz
+            ? "<p style='margin:0;$value'>Obrat: <strong>" . $eur($ruz['revenue']) . "</strong></p>"
+              . "<p style='margin:4px 0 0;$value'>" . ($ruz['profit'] < 0 ? 'Strata' : 'Zisk') . ": <strong style='color:" . ($ruz['profit'] < 0 ? '#FF6B6B' : '#FFFFFF') . ";'>" . $eur($ruz['profit']) . "</strong></p>"
+              . "<p style='margin:6px 0 0;font-size:12px;color:#666666;font-family:Arial,sans-serif;'>obdobie " . h($ruz['period']) . "</p>"
+            : "<p style='margin:0;font-size:14px;color:#888888;font-family:Arial,sans-serif;'>nezistené – závierka nie je v RÚZ v štruktúrovanej podobe</p>";
+        $revenueTitle = $ruz ? 'Hospodárenie ' . h($ruz['year']) : 'Hospodárenie za minulý rok';
+        $finstat = 'https://www.finstat.sk/' . rawurlencode($ico);
+        $registryBlock = "
+      <tr><td style='padding:0 0 12px;'>
+        <table width='100%' cellpadding='0' cellspacing='0'><tr>
+          <td width='50%' valign='top' style='padding-right:6px;'>
+            <div style='background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px 20px;'>
+              <p style='margin:0 0 4px;$label'>$revenueTitle</p>
+              $revenueHtml
+            </div>
+          </td>
+          <td width='50%' valign='top' style='padding-left:6px;'>
+            <div style='background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px 20px;'>
+              <p style='margin:0 0 4px;$label'>IČO " . h($ico) . "</p>
+              <a href='$finstat' style='color:#BEEC1B;text-decoration:none;font-size:14px;font-family:Arial,sans-serif;'>Zobraziť na FinStat →</a>
+            </div>
+          </td>
+        </tr></table>
+      </td></tr>";
+    }
+
     // Ďalšie polia (napr. formulár Vývoj aplikácií) – [nadpis => hodnota]
     $extraBlocks = '';
     foreach ($extra as $label => $value) {
@@ -206,6 +241,7 @@ function agencyEmail(
         </table>
       </td></tr>
 
+      $registryBlock
       $industryBlock
       $problemBlock
       $revenueBlock
@@ -323,6 +359,17 @@ foreach ($appFields as $label => $value) {
     if ($value !== '') $appAltBody .= "\n$label: $value";
 }
 
+// Obrat a zisk z RÚZ – len do e-mailu pre nás, pri výpadku RÚZ ostane „nezistený“
+$ruz = $ico !== '' ? ruzLastFinancials($ico) : null;
+$registryAltBody = $ico !== ''
+    ? "\nIČO: $ico"
+      . ($ruz
+          ? "\nObrat {$ruz['year']}: " . number_format($ruz['revenue'], 0, ',', ' ') . ' €'
+            . "\n" . ($ruz['profit'] < 0 ? 'Strata' : 'Zisk') . " {$ruz['year']}: " . number_format($ruz['profit'], 0, ',', ' ') . ' €'
+          : "\nObrat a zisk: nezistené")
+      . "\nFinStat: https://www.finstat.sk/$ico"
+    : '';
+
 // Email 1 – Agency notification
 try {
     $m = makeMailer();
@@ -330,8 +377,8 @@ try {
     $m->addAddress('martin@advestor.sk', 'Martin');
     $m->isHTML(true);
     $m->Subject = 'Nový dopyt z webu – ' . $name . ($company ? " ($company)" : '');
-    $m->Body    = agencyEmail($name, $company, $email, $phone, $industryLabel, $problem, $revenueLabel, $effortLabel, $website, $social, $appFields);
-    $m->AltBody = "Nový dopyt\nMeno: $name\nEmail: $email\nTel: $phone" . ($website ? "\nWeb: $website" : '') . ($social ? "\nSociálne: $social" : '') . $appAltBody;
+    $m->Body    = agencyEmail($name, $company, $email, $phone, $industryLabel, $problem, $revenueLabel, $effortLabel, $website, $social, $appFields, $ico, $ruz);
+    $m->AltBody = "Nový dopyt\nMeno: $name\nEmail: $email\nTel: $phone" . ($company ? "\nFirma: $company" : '') . $registryAltBody . ($website ? "\nWeb: $website" : '') . ($social ? "\nSociálne: $social" : '') . $appAltBody;
     $m->send();
 } catch (Exception $e) {
     $errors[] = 'agency';

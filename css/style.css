@@ -1569,6 +1569,9 @@ max-width: 640px; }
 .form-consent input:focus-visible { outline: 2px solid var(--primary-500); outline-offset: 2px; }
 .form-consent a { color: var(--white); text-decoration: underline; text-underline-offset: 3px; }
 
+/* reCAPTCHA: odznak skrytý */
+.grecaptcha-badge { visibility: hidden; }
+
 .form-option-grid {
   display: flex;
   flex-wrap: wrap;

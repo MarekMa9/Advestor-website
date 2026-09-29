@@ -38,6 +38,47 @@ if (!$name || !$email || !$phone || !filter_var($email, FILTER_VALIDATE_EMAIL)) 
     exit;
 }
 
+/* ── reCAPTCHA v3 ─────────────────────────────────────────────────────
+   Google vráti skóre 0–1 (1 = takmer isto človek). Pod hranicou dopyt
+   odmietneme. Bez tajného kľúča v konfigurácii sa overenie preskočí, aby
+   formulár fungoval aj na prostredí, kde kľúč ešte nie je nastavený.
+   ──────────────────────────────────────────────────────────────────── */
+const RECAPTCHA_MIN_SCORE = 0.5;
+
+function recaptchaPassed(string $token): bool {
+    $secret = advestorConfig()['recaptcha_secret'] ?? '';
+    if (!$secret) return true;          // kľúč nenastavený → neblokujeme formulár
+    if (!$token)  return false;
+
+    $ch = curl_init('https://www.google.com/recaptcha/api/siteverify');
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_TIMEOUT        => 5,
+        CURLOPT_CONNECTTIMEOUT => 3,
+        CURLOPT_POST           => true,
+        CURLOPT_POSTFIELDS     => http_build_query([
+            'secret'   => $secret,
+            'response' => $token,
+            'remoteip' => $_SERVER['REMOTE_ADDR'] ?? '',
+        ]),
+    ]);
+    $body = curl_exec($ch);
+    $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+    if ($body === false || $code !== 200) return true; // výpadok Google → radšej dopyt prepustíme
+
+    $result = json_decode($body, true);
+    return ($result['success'] ?? false)
+        && ($result['action'] ?? '') === 'contact_form'
+        && ($result['score']  ?? 0) >= RECAPTCHA_MIN_SCORE;
+}
+
+if (!recaptchaPassed(trim($_POST['recaptcha_token'] ?? ''))) {
+    http_response_code(400);
+    echo json_encode(['success' => false, 'message' => 'Overenie proti robotom zlyhalo. Skúste to znova alebo nám napíšte na info@advestor.sk.']);
+    exit;
+}
+
 $industryMap = [
     'ecommerce' => 'E-commerce',
     'saas'      => 'SaaS / Tech',

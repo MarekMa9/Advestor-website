@@ -1041,6 +1041,7 @@
         btn.textContent = 'Odosielam...';
 
         const formData = new FormData(this);
+        formData.append('recaptcha_token', await recaptchaToken('contact_form'));
 
         try {
           const res  = await fetch('send-mail.php', { method: 'POST', body: formData });
@@ -1086,6 +1087,7 @@
   </script>
 
   <script src="js/company-autocomplete.js" defer></script>
+  <script src="js/recaptcha.js" defer></script>
 </body>
 
 </html>
